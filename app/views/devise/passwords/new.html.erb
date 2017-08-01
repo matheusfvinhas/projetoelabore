@@ -1,9 +1,9 @@
 <div class="container" align="center">
-  <h2>Esqueci Minha Senha</h2>
+  <p style="font-size: 35px;">Esqueci Minha Senha</p>
   
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     
-    <div class="form-group col-md-4 col-md-offset-4">
+    <div class="form-group col-md-4 col-md-offset-4" align="left">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, class: "form-control" %>
     </div>
