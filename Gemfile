@@ -25,6 +25,7 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'font-awesome-rails'
 gem 'i18n'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry-byebug'
