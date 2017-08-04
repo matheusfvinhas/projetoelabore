@@ -1,19 +1,18 @@
-<div class="container col-md-4 col-md-offset-4" align="center">
-  <p style="font-size: 35px;">Esqueci Minha Senha</p>
-  
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    
-    <div class="form-group" align="left">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, class: "form-control" %>
-    </div>
+<div class="container col-md-6 col-md-offset-3" align="center">
+  <p style="font-size: 35px;">Esqueceu a senha?</p>
+  <p style="font-size: 18px;">Não se preocupe! Insira seu e-mail abaixo para receber um link e resetar a sua senha.</p>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      
+      <div class="form-group" align="left">        
+        <%= f.email_field :email, placeholder: "seuemail@email.com", class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= button_tag "", type: :submit, class: "btn btn-block btn-primary" do %>
-        <%= fa_icon "envelope" %>
-        Resetar Senha
-      <% end %>
-    </div>
-  <% end %>
-  
+      <div class="form-group">
+        <%= button_tag "", type: :submit, class: "btn btn-block btn-primary" do %>
+          <%= fa_icon "envelope", text: "Resetar" %>       
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
