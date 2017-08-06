@@ -14,18 +14,14 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-
-
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
 gem 'devise'
-gem 'twitter-bootstrap-rails'
-gem 'font-awesome-rails'
 gem 'i18n'
 gem 'jquery-rails'
+gem 'materialize-sass'
+gem 'material_icons'
 
 group :development, :test do
   gem 'pry-byebug'
