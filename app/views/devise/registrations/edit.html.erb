@@ -1,66 +1,66 @@
-<p style="font-size: 35px;" align="center">Alterar Cadastro</p>
+<div class="container center">
+  <p style="font-size: 35px;">Alterar Cadastro</p>
+</div>
 
-<div class="container col-md-6 col-md-offset-3">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "container" }) do |f| %>
     <%= devise_error_messages! %>
     
-    <div class="form-group">
+    <div class="input-field">
       <%= f.label :email %>
       <% if current_user.admin? %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, class: "validate", required: :true %>
       <% else %>
-        <%= f.email_field :email, autofocus: true, disabled: :true, class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, disabled: :true, class: "validate", required: :true %>
       <% end %>    
-    </div>  
-
-    <div class="form-group">
-      <%= f.label :nome %>
-      <%= f.text_field :nome, class: "form-control" %> 
-    </div>        
-
-    <div class="form-group col-md-6">
-      <%= f.label :responsavel, "Responsável" %>
-      <%= f.text_field :responsavel, class: "form-control" %> 
-    </div>
+    </div> 
     
-    <div class="form-group col-md-6">
-      <%= f.label :telefone %>
-      <%= f.telephone_field :telefone, class: "form-control" %>
+    <div class="input-field">
+      <%= f.label :nome %>
+      <%= f.text_field :nome, class: "validate", required: :true %> 
     </div> 
 
-    <div class="form-group col-md-6">
-      <%= f.label :password, "Senha" %>
-      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>    
-    </div>   
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.label :responsavel, "Responsável" %>
+        <%= f.text_field :responsavel, class: "validate", required: :true %> 
+      </div>    
+    
+      <div class="input-field col s6">
+        <%= f.label :telefone %>
+        <%= f.telephone_field :telefone, class: "validate", required: :true %>
+      </div> 
+    </div>
 
-    <div class="form-group col-md-6">
-      <%= f.label :password_confirmation, "Confirmação de Senha" %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-    </div>  
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.label :password, "Senha" %>
+        <%= f.password_field :password, autocomplete: "off", class: "validate" %>    
+      </div>       
+
+      <div class="input-field col s6">
+        <%= f.label :password_confirmation, "Confirmação de Senha" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "validate" %>
+      </div>  
+    </div>
 
     <% if current_user.professor? %>
-      <div class="form-group">
+      <div class="input-field">
         <%= f.label :minicv, "Mini Curriculum" %> 
-        <%= f.text_area :minicv, rows: 5, class: "form-control" %>
+        <%= f.text_area :minicv, rows: 5, class: "validate", required: :true %>
       </div>    
     <% end %>
 
-    <div class="form-group">
+    <div class="input-field">
       <%= f.label :current_password, "Senha Atual" %> 
-      <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+      <%= f.password_field :current_password, autocomplete: "off", class: "validate", required: :true %>
     </div>           
 
-    <div class="form-inline" align="center">
-      <%= button_tag type: :submit, class: "btn btn-primary" do %>
-        <i class="material-icons left">save</i>Salvar    
-      <% end %>
+    <div class="row center">
+      <%= f.submit "Salvar", class: "waves-effect waves-light btn"  %>        
 
-      <%= link_to :back, class: "btn btn-default" do %>
-        <i class="material-icons left">arrow_back</i>Voltar    
-      <% end %>
+      <%= link_to "Voltar", :back, class: "waves-effect waves-light btn grey" %>        
     </div>
   <% end %>
 </div>
-
-
 

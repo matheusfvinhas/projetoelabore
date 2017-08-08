@@ -1,20 +1,19 @@
-<div class="container col-md-4 col-md-offset-4" align="center">
+<div class="container center">
   <p style="font-size: 35px;">Entrar</p>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-group" align="left">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "container"}) do |f| %>
+    <div class="input-field">
       <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      <%= f.email_field :email, autofocus: true, class: "validate", required: :true %>
     </div>
 
-    <div class="form-group" align="left">
+    <div class="input-field">
       <%= f.label :password, "Senha" %>
-      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-    </div>
-    
+      <%= f.password_field :password, autocomplete: "off", class: "validate", required: :true %>
+    </div>    
 
-    <div class="form-group">
-      <%= button_tag "Entrar", type: :submit, class: "waves-effect waves-light btn" %>      
+    <div class="input-field">
+      <%= f.submit "Entrar", class: "waves-effect waves-light btn" %>      
     </div>
 
     <div class="right-align">

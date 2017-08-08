@@ -20,6 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'devise'
 gem 'i18n'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'materialize-sass'
 gem 'material_icons'
 

@@ -1,17 +1,15 @@
-<div class="container col-md-6 col-md-offset-3" align="center">
+<div class="container center">
   <p style="font-size: 35px;">Esqueceu a senha?</p>
-  <p style="font-size: 18px;">Não se preocupe! Insira seu e-mail abaixo para receber um link e resetar a sua senha.</p>
-  <div class="col-md-6 col-md-offset-3">
+  
+  <div class="container">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      
-      <div class="form-group" align="left">        
-        <%= f.email_field :email, placeholder: "seuemail@email.com", class: "form-control" %>
+      <p class="center" style="font-size: 18px;">Não se preocupe! Insira seu e-mail abaixo para receber um link e resetar a sua senha.</p>
+      <div class="input-field">        
+        <%= f.email_field :email, placeholder: "seuemail@email.com", class: "validate", required: :true %>
       </div>
 
-      <div class="form-group">
-        <%= button_tag "", type: :submit, class: "waves-effect waves-light btn" do %>
-          <i class="material-icons right">send</i>Resetar
-        <% end %>
+      <div class="input-field">
+        <%= f.submit "Resetar", class: "waves-effect waves-light btn" %>          
       </div>
     <% end %>
   </div>
