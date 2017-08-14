@@ -29,6 +29,8 @@ $( document ).on('turbolinks:load', function() {
         stopPropagation: false // Stops event propagation       
         }
     );
+    $('select').material_select();
+    $('input#input_text, textarea#textarea1').characterCounter();
 });
 
     

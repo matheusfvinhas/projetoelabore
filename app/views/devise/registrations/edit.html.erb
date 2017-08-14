@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "container" }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
     
     <div class="input-field">
@@ -47,7 +47,7 @@
     <% if current_user.professor? %>
       <div class="input-field">
         <%= f.label :minicv, "Mini Curriculum" %> 
-        <%= f.text_area :minicv, rows: 5, class: "validate", required: :true %>
+        <textarea id="minicv" class="materialize-textarea" data-length="5000" required></textarea>               
       </div>    
     <% end %>
 

@@ -1,0 +1,59 @@
+<div class="container center">
+  <p style="font-size: 35px;">Cadastrar Usuário</p>
+</div>
+
+<div class="container">
+  <%= form_for User.new, url: create_user_path do |f| %>  
+
+    <div class="input-field">
+        <%= f.label :email %>
+        <% if current_user.admin? %>
+          <%= f.email_field :email, autofocus: true, class: "validate", required: :true %>
+        <% else %>
+          <%= f.email_field :email, autofocus: true, disabled: :true, class: "validate", required: :true %>
+        <% end %>    
+      </div> 
+      
+      <div class="input-field">
+        <%= f.label :nome %>
+        <%= f.text_field :nome, class: "validate", required: :true %> 
+      </div> 
+
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.label :responsavel, "Responsável" %>
+          <%= f.text_field :responsavel, class: "validate", required: :true %> 
+        </div>    
+      
+        <div class="input-field col s6">
+          <%= f.label :telefone %>
+          <%= f.telephone_field :telefone, class: "validate", required: :true %>
+        </div> 
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.label :password, "Senha" %>
+          <%= f.password_field :password, autocomplete: "off", class: "validate" %>    
+        </div>       
+
+        <div class="input-field col s6">
+          <%= f.label :password_confirmation, "Confirmação de Senha" %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "validate" %>
+        </div>  
+      </div>
+
+      <div class="input-field">        
+        <%= f.select :tipo, [["Escolha o tipo do usuário", ""], ["Administrador", :admin], ["Professor", :professor], ["Aluno", :aluno]] %> 
+      </div>                   
+
+      <div class="row center">
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn"  %>        
+
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn grey" %>        
+      </div>
+
+  <% end %>
+</div>
+
+
