@@ -23,6 +23,8 @@ pt-BR:
         subject: "Instruções de troca de senha"
       unlock_instructions:
         subject: "Instruções de desbloqueio"
+      password_change:
+        subject: "Troca de senha"
     omniauth_callbacks:
       failure: "Não foi possível autenticá-lo como %{kind} porque %{reason}."
       success: "Autenticado com sucesso com uma conta de %{kind}."

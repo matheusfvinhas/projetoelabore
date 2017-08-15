@@ -7,8 +7,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    generated_password = Devise.friendly_token.first(8)
+    @user.password = generated_password
+
     if @user.save
-      flash[:notice] = "Usuário salvo com sucesso."
+      flash[:notice] = "Usuário salvo com sucesso."      
+      UserMailer.welcome(@user, generated_password).deliver_later
       redirect_to root_path
     else
       flash[:alert] = "Erro ao salvar usuário"
@@ -19,6 +23,6 @@ class UsersController < ApplicationController
 
   private
     def user_params()
-      params.require(:user).permit(:username, :nome, :responsavel, :telefone, :email, :password, :password_confirmation, :tipo)
+      params.require(:user).permit(:username, :nome, :responsavel, :telefone, :email, :tipo)
     end
 end

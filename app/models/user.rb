@@ -3,4 +3,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :registerable
   enum tipo: [:admin, :professor, :aluno]
+  
 end

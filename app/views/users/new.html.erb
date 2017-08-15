@@ -29,19 +29,7 @@
           <%= f.label :telefone %>
           <%= f.telephone_field :telefone, class: "validate", required: :true %>
         </div> 
-      </div>
-
-      <div class="row">
-        <div class="input-field col s6">
-          <%= f.label :password, "Senha" %>
-          <%= f.password_field :password, autocomplete: "off", class: "validate" %>    
-        </div>       
-
-        <div class="input-field col s6">
-          <%= f.label :password_confirmation, "Confirmação de Senha" %>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: "validate" %>
-        </div>  
-      </div>
+      </div>      
 
       <div class="input-field">        
         <%= f.select :tipo, [["Escolha o tipo do usuário", ""], ["Administrador", :admin], ["Professor", :professor], ["Aluno", :aluno]] %> 
