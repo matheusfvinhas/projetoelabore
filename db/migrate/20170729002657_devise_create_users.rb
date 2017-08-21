@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :username, limit: 20
       t.string :nome, limit: 50
       t.string :responsavel, limit: 50
-      t.string :telefone, limit: 11
+      t.string :telefone, limit: 15
       t.string :minicv, limit: 5000
       t.integer :tipo
 

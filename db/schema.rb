@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170729002657) do
     t.string "username", limit: 20
     t.string "nome", limit: 50
     t.string "responsavel", limit: 50
-    t.string "telefone", limit: 11
+    t.string "telefone", limit: 15
     t.string "minicv", limit: 5000
     t.integer "tipo"
     t.string "reset_password_token"

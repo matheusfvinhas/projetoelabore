@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery.turbolinks
+//= require jquery.formatter
 //= require materialize-sprockets
 //= require turbolinks
 //= require_tree .
@@ -31,6 +32,9 @@ $( document ).on('turbolinks:load', function() {
     );
     $('select').material_select();
     $('input#input_text, textarea#textarea1').characterCounter();
+    $('#user_telefone').formatter({
+        'pattern': '({{99}}) {{99999}}-{{9999}}'       
+    });
 });
 
     

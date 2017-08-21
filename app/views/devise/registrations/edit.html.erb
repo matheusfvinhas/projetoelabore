@@ -17,18 +17,18 @@
     
     <div class="input-field">
       <%= f.label :nome %>
-      <%= f.text_field :nome, class: "validate", required: :true %> 
+      <%= f.text_field :nome, maxlength: 50, class: "validate", required: :true %> 
     </div> 
 
     <div class="row">
       <div class="input-field col s6">
         <%= f.label :responsavel, "Responsável" %>
-        <%= f.text_field :responsavel, class: "validate", required: :true %> 
+        <%= f.text_field :responsavel, maxlength: 50, class: "validate", required: :true %> 
       </div>    
     
       <div class="input-field col s6">
         <%= f.label :telefone %>
-        <%= f.telephone_field :telefone, class: "validate", required: :true %>
+        <%= f.telephone_field :telefone, maxlength: 15, class: "validate", required: :true %>
       </div> 
     </div>
 
