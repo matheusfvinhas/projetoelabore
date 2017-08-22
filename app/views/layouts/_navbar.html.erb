@@ -16,7 +16,7 @@
     <ul id="cadastrar-dropdown" class="dropdown-content">
         <li>
             <% if current_user.admin? %>
-                <%= link_to "Usuários" %>              
+                <%= link_to "Usuários", register_user_path %>              
                 <%= link_to "Parceiros" %>
                 <%= link_to "Eventos" %>
                 <%= link_to "Editais" %>
