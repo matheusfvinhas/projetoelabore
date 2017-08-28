@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170729002657) do
+ActiveRecord::Schema.define(version: 20170825224520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "parceiros", force: :cascade do |t|
+    t.string "nome", limit: 50
+    t.string "responsavel", limit: 50
+    t.string "email"
+    t.text "sobre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

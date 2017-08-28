@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-  <%= form_for User.new, url: create_user_path do |f| %>  
+  <%= form_for @user, url: create_user_path do |f| %>  
 
     <div class="input-field">
         <%= f.label :email %>
@@ -27,7 +27,7 @@
       
         <div class="input-field col s6">
           <%= f.label :telefone %>
-          <%= f.telephone_field :telefone, class: "validate", required: :true, maxlength: 15 %>
+          <%= f.telephone_field :telefone, class: "validate", maxlength: 15 %>
         </div> 
       </div>      
 

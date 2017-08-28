@@ -1,0 +1,39 @@
+<div class="container center">
+  <p style="font-size: 35px;">Seja Nosso Parceiro</p>
+</div>
+
+<div class="container">
+  <%= form_for @parceiro, url: enviar_pedido_parceria_path, html: {class: "container"} do |f| %>  
+
+    <div class="input-field">     
+      
+      <div class="input-field">
+        <%= f.label :nome, "Nome da Instituicão" %>
+        <%= f.text_field :nome, class: "validate", required: :true, maxlength: 50 %> 
+      </div>  
+
+      <div class="input-field">
+        <%= f.label :responsavel, "Responsável" %>
+        <%= f.text_field :responsavel, class: "validate", required: :true, maxlength: 50 %> 
+      </div> 
+
+      <div class="input-field">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "validate", required: :true, maxlength: 50 %> 
+      </div>  
+
+      <div class="input-field">
+        <%= f.label :sobre, "Fale um pouco sobre a instituicão" %> 
+        <textarea id="parceiro_sobre" name="parceiro[sobre]" class="materialize-textarea" data-length="5000" required></textarea>               
+      </div>                     
+
+      <div class="row center">
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn"  %>        
+
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn grey" %>        
+      </div>
+
+  <% end %>
+</div>
+
+

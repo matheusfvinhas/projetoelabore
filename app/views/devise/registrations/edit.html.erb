@@ -47,7 +47,7 @@
     <% if current_user.professor? %>
       <div class="input-field">
         <%= f.label :minicv, "Mini Curriculum" %> 
-        <textarea id="minicv" class="materialize-textarea" data-length="5000" required></textarea>               
+        <textarea id="user_minicv" name ="user[minicv]" class="materialize-textarea" data-length="5000" required></textarea>               
       </div>    
     <% end %>
 
