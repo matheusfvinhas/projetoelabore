@@ -1,0 +1,37 @@
+<div class="container center">
+  <p style="font-size: 35px;">Usuários</p>
+</div>
+
+<div class="right">       
+
+    <%= link_to register_user_path, class: "waves-effect waves-light btn" do %>
+        <%= material_icon.add_circle %>
+    <% end %>       
+  
+</div>
+
+<div class="center">  
+
+    <table class="highlight bordered responsive-table">
+        
+        <head>
+            <tr>
+                <th>Nome</th>
+                <th>Responsável</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Tipo</th>
+                <th></th>
+            </tr>
+        </head>
+
+         
+        <%= render @users %>
+
+    </table>        
+
+     
+  
+</div>
+
+

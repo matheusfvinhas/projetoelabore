@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007', tipo: :admin, nome: "Matheus", responsavel: "Matheus", telefone: "(12) 98169-7471")
+User.create(email: 'glauvinhas@gmail.com', password: 'rap007', tipo: :professor, nome: "Glaucia", responsavel: "Matheus", telefone: "(12) 98169-7471")
