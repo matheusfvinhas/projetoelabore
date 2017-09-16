@@ -27,6 +27,7 @@ gem 'material_icons'
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do

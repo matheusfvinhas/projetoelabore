@@ -39,12 +39,18 @@ end
 
 RSpec.describe User, type: :model do
     before do
-        @user = User.new(email: 'matheusfvinhas@gmail.com', password: 'rap007',
+        @valid_user = User.new(email: 'matheusfvinhas@gmail.com', password: 'rap007',
+        tipo: :aluno, nome: "Matheus", responsavel: "Matheus", telefone: "(12) 98169-7471")
+        @non_valid_user = User.new(password: 'rap007',
         tipo: :aluno, nome: "Matheus", responsavel: "Matheus", telefone: "(12) 98169-7471")
     end
 
-    it "User is created correctly" do 
-        @user.save       
-        expect(@user.save).to eq(true)
-    end
+    it "should be valid" do
+        expect(@valid_user).to be_valid
+    end    
+
+    it "should be invalid" do
+        expect(@non_valid_user).to_not be_valid
+    end   
 end
+
