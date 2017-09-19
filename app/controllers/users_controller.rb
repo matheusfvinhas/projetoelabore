@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @users = User.all.order(:tipo, :nome)
   end
 
-  def delete    
+  def destroy    
     @user = User.find(params[:id])
     
     if @user.id == current_user.id
