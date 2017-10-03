@@ -32,6 +32,7 @@ $( document ).on('turbolinks:load', function() {
     );
     $('select').material_select();
     $('input#input_text, textarea#textarea1').characterCounter();
+    $('.materialize-textarea').trigger('autoresize');
     $('#user_telefone').formatter({
         'pattern': '({{99}}) {{99999}}-{{9999}}'       
     });

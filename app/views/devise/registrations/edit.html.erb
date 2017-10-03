@@ -46,13 +46,13 @@
 
     <% if current_user.professor? %>
       <div class="input-field">
-        <%= f.label :minicv, "Mini Curriculum" %> 
-        <textarea id="user_minicv" name ="user[minicv]" class="materialize-textarea" data-length="5000" required></textarea>               
+        <%= f.label :minicv, "Mini Curriculum" %>              
+        <textarea id="user_minicv" name ="user[minicv]" class="materialize-textarea" data-length="5000" required><%= resource.minicv %></textarea>               
       </div>    
     <% end %>
 
     <div class="input-field">
-      <%= f.label :current_password, "Senha Atual" %> 
+      <%= f.label :current_password, "Senha Atual" %>       
       <%= f.password_field :current_password, autocomplete: "off", class: "validate", required: :true %>
     </div>           
 

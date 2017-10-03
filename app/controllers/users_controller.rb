@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
     generated_password = Devise.friendly_token.first(8)
     @user.password = generated_password
+    @user.novo_usuario = "S"
 
     if @user.save
       flash[:notice] = "Usuário salvo com sucesso."      

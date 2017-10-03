@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
 
     it "The kind is professor" do        
         expect(@user.tipo).to eq("professor")
-    end
+    end    
 end
 
 RSpec.describe User, type: :model do

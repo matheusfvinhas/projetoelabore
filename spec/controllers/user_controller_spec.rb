@@ -28,7 +28,7 @@ RSpec.describe UsersController do
             tipo: :aluno, nome: "Matheus", responsavel: "Matheus", telefone: "(12) 98169-7471" }}
   
         expect(response).to redirect_to show_all_users_path   
-        expect(flash[:notice]).to match(/^Usuário salvo com sucesso./)    
+        expect(flash[:notice]).to match(/^Usuário salvo com sucesso./)         
       end
     end
   end

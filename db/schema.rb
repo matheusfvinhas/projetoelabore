@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170825224520) do
     t.string "telefone", limit: 15
     t.string "minicv", limit: 5000
     t.integer "tipo"
+    t.string "novo_usuario", limit: 1
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "created_at", null: false
