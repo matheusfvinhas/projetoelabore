@@ -1,0 +1,2 @@
+class Edital < ApplicationRecord
+end

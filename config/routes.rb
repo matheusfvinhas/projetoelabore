@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get 'seja_nosso_parceiro' => 'parceiros#new', as: :new_parceiro 
   post 'enviar_pedido_parceria' => 'parceiros#enviar_pedido_parceria', as: :enviar_pedido_parceria
   root to: 'index#index'
+  resources :eventos
+  resources :editais
 end

@@ -16,8 +16,7 @@
     <ul id="cadastrar-dropdown" class="dropdown-content">
         <li>
             <% if current_user.admin? %>
-                <%= link_to "Usuários", show_all_users_path %>              
-                <%= link_to "Parceiros" %>
+                <%= link_to "Usuários", show_all_users_path %>                
                 <%= link_to "Eventos" %>
                 <%= link_to "Editais" %>
             <% end %>
@@ -37,8 +36,8 @@
             <div class="nav-wrapper">  
                 <%= link_to "Elabore", root_path, class: "brand-logo center" %>   
                 <ul id="nav-right" class="left hide-on-med-and-down">  
-                    <li><%= link_to "Eventos", "#", class: "waves-effect waves-light btn"%></li>
-                    <li><%= link_to "Editais", "#", class: "waves-effect waves-light btn"%></li> 
+                    <li><%= link_to "Eventos", eventos_path, class: "waves-effect waves-light btn"%></li>
+                    <li><%= link_to "Editais", editais_path, class: "waves-effect waves-light btn"%></li> 
                 </ul>                            
                 <ul id="nav-right" class="right hide-on-med-and-down">                                  
                     <% if user_signed_in? %>  

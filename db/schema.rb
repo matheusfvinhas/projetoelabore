@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825224520) do
+ActiveRecord::Schema.define(version: 20171003222959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "editals", force: :cascade do |t|
+    t.string "titulo", limit: 100
+    t.text "descricao"
+    t.integer "usuario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "eventos", force: :cascade do |t|
+    t.string "titulo", limit: 100
+    t.string "descricao", limit: 255
+    t.string "local", limit: 100
+    t.datetime "data"
+    t.integer "usuario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "parceiros", force: :cascade do |t|
     t.string "nome", limit: 50
