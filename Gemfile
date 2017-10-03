@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'materialize-sass'
 gem 'material_icons'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry-byebug'
