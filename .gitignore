@@ -19,3 +19,7 @@
 /yarn-error.log
 
 .byebug_history
+
+/db/seeds.rb
+/config/environments/development.rb
+/config/environments/production.rb
