@@ -7,9 +7,14 @@ RSpec.describe UsersController do
       expect(response).to be_success
     end      
   end  
-end
+  
+  describe "GET new" do
+    it "get new" do      
+      get :new
+      expect(response).to be_success
+    end      
+  end  
 
-RSpec.describe UsersController do   
   describe 'POST #create' do
     context 'when email is not valid' do
       it 'save user and redirects to all users page' do       

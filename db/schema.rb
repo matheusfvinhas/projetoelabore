@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20171003222959) do
 
   create_table "editals", force: :cascade do |t|
     t.string "titulo", limit: 100
-    t.text "descricao"
+    t.text "descricao", limit: 255
     t.integer "usuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

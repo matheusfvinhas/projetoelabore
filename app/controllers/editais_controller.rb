@@ -1,5 +1,5 @@
 class EditaisController < ApplicationController
-    before_action :set_edital, only[:show, :edit, :update, :destroy]
+    before_action :set_edital, only: [:show, :edit, :update, :destroy]
 
     def new
         @edital = Edital.new
@@ -10,7 +10,7 @@ class EditaisController < ApplicationController
     end
 
     def show
-
+        
     end
 
     def create
