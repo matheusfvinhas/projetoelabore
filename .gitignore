@@ -23,3 +23,5 @@
 /db/seeds.rb
 /config/environments/development.rb
 /config/environments/production.rb
+
+public/uploads

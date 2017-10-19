@@ -55,7 +55,7 @@ class EventosController < ApplicationController
         end
 
         def evento_params
-            params.require(:evento).permit(:titulo, :descricao, :local, :data)
+            params.require(:evento).permit(:titulo, :descricao, :local, :data, images: [])
         end
 
 end

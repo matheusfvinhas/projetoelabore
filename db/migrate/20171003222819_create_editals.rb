@@ -4,7 +4,8 @@ class CreateEditals < ActiveRecord::Migration[5.1]
       t.string :titulo, limit: 100
       t.text :descricao, limit: 255
       t.integer :usuario_id
-
+      t.string :document
+      
       t.timestamps
     end
   end

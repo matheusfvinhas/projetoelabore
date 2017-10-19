@@ -24,6 +24,7 @@ gem 'jquery-turbolinks'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'pry-byebug'

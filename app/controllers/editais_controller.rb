@@ -55,6 +55,6 @@ class EditaisController < ApplicationController
         end
 
         def edital_params
-            params.require(:edital).permit(:titulo, :descricao)
+            params.require(:edital).permit(:titulo, :descricao, :document)
         end
 end
