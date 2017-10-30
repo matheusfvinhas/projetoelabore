@@ -35,7 +35,7 @@ $( document ).on('turbolinks:load', function() {
     $('.materialize-textarea').trigger('autoresize');
     $('#user_telefone').formatter({
         'pattern': '({{99}}) {{99999}}-{{9999}}'       
-    });
+    });    
 });
 
     

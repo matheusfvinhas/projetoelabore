@@ -29,7 +29,11 @@ gem 'mini_magick'
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
-  gem 'rails-controller-testing'
+  gem 'rails-controller-testing'  
+end
+
+group :test do
+  gem 'simplecov', :require => false
 end
 
 group :development do
