@@ -3,10 +3,11 @@
 </div>
 
 <div class="right">       
-
-    <%= link_to new_editai_path, class: "waves-effect waves-light btn" do %>
-        <%= material_icon.add_circle %>
-    <% end %>       
+    <% if current_user and current_user.admin? %>
+        <%= link_to new_editai_path, class: "waves-effect waves-light btn" do %>
+            <%= material_icon.add_circle %>
+        <% end %> 
+    <% end %>     
   
 </div>
 
@@ -23,7 +24,7 @@
         </head>
 
          
-        <%= render @editais %>
+        <%= render partial: "editais/edital", collection: @editais, as: :edital %>
 
     </table>        
 

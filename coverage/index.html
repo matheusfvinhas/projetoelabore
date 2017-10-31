@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-10-30T20:12:50-02:00">2017-10-30T20:12:50-02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-10-30T22:22:24-02:00">2017-10-30T22:22:24-02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">86.02%</span></span>
+    (<span class="covered_percent"><span class="yellow">85.89%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         27.11
+         27.36
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>45</b> files in total.
-    <b>422</b> relevant lines. 
-    <span class="green"><b>363</b> lines covered</span> and
+    <b>418</b> relevant lines. 
+    <span class="green"><b>359</b> lines covered</span> and
     <span class="red"><b>59</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -223,9 +223,9 @@
       <tr>
         <td class="strong"><a href="#d40473eb7995c17f91f34150bfc50ab5d20c9f6d" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>19</td>
-        <td>13</td>
-        <td>13</td>
+        <td>18</td>
+        <td>12</td>
+        <td>12</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -483,11 +483,11 @@
       <tr>
         <td class="strong"><a href="#a42a7507b79cd4409212bc9c8994e332c31cc1a7" class="src_link" title="spec/models/user_spec.rb">spec/models/user_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>97</td>
-        <td>51</td>
-        <td>51</td>
+        <td>91</td>
+        <td>48</td>
+        <td>48</td>
         <td>0</td>
-        <td>101.9</td>
+        <td>108.2</td>
       </tr>
       
       <tr>
@@ -1442,7 +1442,7 @@
         <li class="missed" data-hits="0" data-linenumber="9">
           
           
-          <code class="ruby">        flash[:notice] = &#39;Sucesso&#39;</code>
+          <code class="ruby">        flash[:notice] = &#39;Sua solicitação foi enviada com sucesso.&#39;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="10">
@@ -2410,8 +2410,8 @@
     <h3>app/models/user.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>13</b> relevant lines. 
-      <span class="green"><b>13</b> lines covered</span> and
+      <b>12</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2458,76 +2458,70 @@
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :email, presence: true  </code>
+          <code class="ruby">  validates :email, presence: true        </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :password, presence: true     </code>
+          <code class="ruby">  validates :username, length: { maximum: 20 }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :username, length: { maximum: 20 }</code>
+          <code class="ruby">  validates :nome, presence: true, length: { maximum: 50 }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :nome, presence: true, length: { maximum: 50 }</code>
+          <code class="ruby">  validates :responsavel, presence: true, length: { maximum: 50 }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :responsavel, presence: true, length: { maximum: 50 }</code>
+          <code class="ruby">  validates :telefone, length: { maximum: 15 }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :telefone, length: { maximum: 15 }</code>
+          <code class="ruby">  validates :minicv, length: { maximum: 5000 }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :minicv, length: { maximum: 5000 }</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
-          
           <code class="ruby">  validates :tipo, presence: true   </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
           <code class="ruby">  has_many :eventos</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
           <code class="ruby">  has_many :editais</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">end</code>
@@ -7746,8 +7740,8 @@
     <h3>spec/models/user_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>51</b> relevant lines. 
-      <span class="green"><b>51</b> lines covered</span> and
+      <b>48</b> relevant lines. 
+      <span class="green"><b>48</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -7986,7 +7980,7 @@
         <li class="never" data-hits="" data-linenumber="39">
           
           
-          <code class="ruby">        end </code>
+          <code class="ruby">        end         </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
@@ -7998,19 +7992,19 @@
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;without password&quot; do</code>
+          <code class="ruby">        it &quot;without tipo&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="42">
           <span class="hits">1</span>
           
-          <code class="ruby">            @user = User.create(email: &#39;matheusfvinhas@gmail.com&#39;,</code>
+          <code class="ruby">            @user = User.create(email: &#39;matheusfvinhas@gmail.com&#39;, password: &#39;rap007&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">            tipo: :aluno, nome: &quot;Matheus&quot;, responsavel: &quot;Matheus&quot;)</code>
+          <code class="ruby">            nome: &quot;Matheus&quot;, responsavel: &quot;Matheus&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="44">
@@ -8034,7 +8028,7 @@
         <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;without tipo&quot; do</code>
+          <code class="ruby">        it &quot;without nome&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="48">
@@ -8046,7 +8040,7 @@
         <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">            nome: &quot;Matheus&quot;, responsavel: &quot;Matheus&quot;)</code>
+          <code class="ruby">            tipo: :aluno, responsavel: &quot;Matheus&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="50">
@@ -8070,7 +8064,7 @@
         <li class="covered" data-hits="1" data-linenumber="53">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;without nome&quot; do</code>
+          <code class="ruby">        it &quot;without responsavel&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="54">
@@ -8082,7 +8076,7 @@
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby">            tipo: :aluno, responsavel: &quot;Matheus&quot;)</code>
+          <code class="ruby">            tipo: :aluno)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="56">
@@ -8106,7 +8100,7 @@
         <li class="covered" data-hits="1" data-linenumber="59">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;without responsavel&quot; do</code>
+          <code class="ruby">        it &quot;username has more then 20 characters&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="60">
@@ -8115,10 +8109,10 @@
           <code class="ruby">            @user = User.create(email: &#39;matheusfvinhas@gmail.com&#39;, password: &#39;rap007&#39;,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="covered" data-hits="22" data-linenumber="61">
+          <span class="hits">22</span>
           
-          
-          <code class="ruby">            tipo: :aluno)</code>
+          <code class="ruby">            tipo: :aluno, nome: &quot;Matheus&quot;, responsavel: &quot;Matheus&quot;, username: (0..20).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="62">
@@ -8142,7 +8136,7 @@
         <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;username has more then 20 characters&quot; do</code>
+          <code class="ruby">        it &quot;name has more then 50 characters&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="66">
@@ -8151,10 +8145,10 @@
           <code class="ruby">            @user = User.create(email: &#39;matheusfvinhas@gmail.com&#39;, password: &#39;rap007&#39;,</code>
         </li>
       
-        <li class="covered" data-hits="22" data-linenumber="67">
-          <span class="hits">22</span>
+        <li class="covered" data-hits="53" data-linenumber="67">
+          <span class="hits">53</span>
           
-          <code class="ruby">            tipo: :aluno, nome: &quot;Matheus&quot;, responsavel: &quot;Matheus&quot;, username: (0..20).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join)</code>
+          <code class="ruby">            tipo: :aluno, nome: (0..51).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join, responsavel: &quot;Matheus&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="68">
@@ -8178,7 +8172,7 @@
         <li class="covered" data-hits="1" data-linenumber="71">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;name has more then 50 characters&quot; do</code>
+          <code class="ruby">        it &quot;responsavel has more then 50 characters&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="72">
@@ -8190,7 +8184,7 @@
         <li class="covered" data-hits="53" data-linenumber="73">
           <span class="hits">53</span>
           
-          <code class="ruby">            tipo: :aluno, nome: (0..51).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join, responsavel: &quot;Matheus&quot;)</code>
+          <code class="ruby">            tipo: :aluno, nome: &quot;Matheus&quot;, responsavel: (0..51).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="74">
@@ -8214,7 +8208,7 @@
         <li class="covered" data-hits="1" data-linenumber="77">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;responsavel has more then 50 characters&quot; do</code>
+          <code class="ruby">        it &quot;telefone has more then 15 characters&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="78">
@@ -8223,10 +8217,10 @@
           <code class="ruby">            @user = User.create(email: &#39;matheusfvinhas@gmail.com&#39;, password: &#39;rap007&#39;,</code>
         </li>
       
-        <li class="covered" data-hits="53" data-linenumber="79">
-          <span class="hits">53</span>
+        <li class="covered" data-hits="18" data-linenumber="79">
+          <span class="hits">18</span>
           
-          <code class="ruby">            tipo: :aluno, nome: &quot;Matheus&quot;, responsavel: (0..51).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join)</code>
+          <code class="ruby">            tipo: :aluno, nome: &quot;Matheus&quot;, responsavel: &quot;Matheus&quot;, telefone: (0..16).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="80">
@@ -8250,7 +8244,7 @@
         <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;telefone has more then 15 characters&quot; do</code>
+          <code class="ruby">        it &quot;minicv has more then 5000 characters&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="84">
@@ -8259,10 +8253,10 @@
           <code class="ruby">            @user = User.create(email: &#39;matheusfvinhas@gmail.com&#39;, password: &#39;rap007&#39;,</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="85">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="5003" data-linenumber="85">
+          <span class="hits">5003</span>
           
-          <code class="ruby">            tipo: :aluno, nome: &quot;Matheus&quot;, responsavel: &quot;Matheus&quot;, telefone: (0..16).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join)</code>
+          <code class="ruby">            tipo: :aluno, nome: &quot;Matheus&quot;, responsavel: &quot;Matheus&quot;, minicv: (0..5001).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="86">
@@ -8280,58 +8274,22 @@
         <li class="never" data-hits="" data-linenumber="88">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="89">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        it &quot;minicv has more then 5000 characters&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="90">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            @user = User.create(email: &#39;matheusfvinhas@gmail.com&#39;, password: &#39;rap007&#39;,</code>
-        </li>
-      
-        <li class="covered" data-hits="5003" data-linenumber="91">
-          <span class="hits">5003</span>
-          
-          <code class="ruby">            tipo: :aluno, nome: &quot;Matheus&quot;, responsavel: &quot;Matheus&quot;, minicv: (0..5001).map { (&#39;a&#39;..&#39;z&#39;).to_a[rand(26)] }.join)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="92">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            expect(@user).to be_invalid</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="93">
-          
-          
-          <code class="ruby">        end </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="94">
-          
-          
           <code class="ruby">        </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="95">
+        <li class="never" data-hits="" data-linenumber="89">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="96">
+        <li class="never" data-hits="" data-linenumber="90">
           
           
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="never" data-hits="" data-linenumber="91">
           
           
           <code class="ruby"></code>

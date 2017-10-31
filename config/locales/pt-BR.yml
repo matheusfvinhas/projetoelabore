@@ -1,8 +1,8 @@
 en:
   errors:
     messages:
-      carrierwave_processing_error: "Nao foi possivel redimensionar imagem."
-      carrierwave_integrity_error: "Nao e uma imagem."
-      carrierwave_download_error: "Nao foi possivel baixar imagem."
-      extension_whitelist_error: "Nao e possivel usar arquivos %{extension}, arquivos aceitos: %{allowed_types}"
+      carrierwave_processing_error: "Não foi possível redimensionar imagem."
+      carrierwave_integrity_error: "Não é uma imagem."
+      carrierwave_download_error: "Não foi possível baixar imagem."
+      extension_whitelist_error: "Não é possível usar arquivos %{extension}, arquivos aceitos: %{allowed_types}"
       

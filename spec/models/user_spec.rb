@@ -36,13 +36,7 @@ RSpec.describe User, type: :model do
             @user = User.create(password: 'rap007',
             tipo: :aluno, nome: "Matheus", responsavel: "Matheus")
             expect(@user).to be_invalid
-        end 
-
-        it "without password" do
-            @user = User.create(email: 'matheusfvinhas@gmail.com',
-            tipo: :aluno, nome: "Matheus", responsavel: "Matheus")
-            expect(@user).to be_invalid
-        end 
+        end         
 
         it "without tipo" do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',

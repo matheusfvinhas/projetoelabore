@@ -1,0 +1,7 @@
+<body>    
+    <tr>
+        <td><%= edital.titulo %></td>
+        <td><%= edital.descricao %></td>
+        <td><%= link_to("Baixar Edital", edital.document.url, target: '_blank') if edital.document? %></td>                 
+    </tr>
+</body>

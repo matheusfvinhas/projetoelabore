@@ -6,7 +6,7 @@ class ParceirosController < ApplicationController
 
     def enviar_pedido_parceria
         @parceiro = Parceiro.new(parceiro_params)
-        flash[:notice] = 'Sucesso'
+        flash[:notice] = 'Sua solicitação foi enviada com sucesso.'
         ParceirosMailer.pedir_parceria(@parceiro.nome, @parceiro.responsavel, @parceiro.email, @parceiro.sobre).deliver_later
         redirect_to root_path
     end

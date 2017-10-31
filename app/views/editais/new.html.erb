@@ -1,0 +1,38 @@
+<div class="container center">
+  <p style="font-size: 35px;">Cadastrar Edital</p>
+</div>
+
+<div class="container">
+  <%= form_for @edital, url: editais_path, method: :post do |f| %>  
+         
+    <div class="input-field">
+        <%= f.label :titulo, "Título" %>
+        <%= f.text_field :titulo, class: "validate", required: :true, maxlength: 100 %> 
+    </div> 
+
+    <div class="input-field">
+        <%= f.label :descricao, "Descrição" %>              
+        <textarea id="edital_descricao" name ="edital[descricao]" class="materialize-textarea" data-length="255" required><%= @edital.descricao %></textarea>               
+    </div>       
+
+    <div class="file-field input-field">
+        <div class="btn">
+            <%= material_icon.cloud_upload %>
+            <%= f.file_field :document %>
+        </div>
+        <div class="file-path-wrapper">
+            <%= text_field_tag nil, (f.object.document.original_filename unless f.object.document.blank?), {id: nil, class: 'file-path validate', placeholder: 'Your filename here!'} %>
+        </div>
+    </div>   
+          
+
+    <div class="row center">
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn"  %>        
+
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn grey" %>        
+    </div>
+
+  <% end %>
+</div>
+
+

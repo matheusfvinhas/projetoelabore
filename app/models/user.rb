@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :registerable
   enum tipo: [:admin, :professor, :aluno]
 
-  validates :email, presence: true  
-  validates :password, presence: true     
+  validates :email, presence: true        
   validates :username, length: { maximum: 20 }
   validates :nome, presence: true, length: { maximum: 50 }
   validates :responsavel, presence: true, length: { maximum: 50 }
