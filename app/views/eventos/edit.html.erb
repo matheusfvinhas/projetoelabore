@@ -1,0 +1,48 @@
+<div class="container center">
+  <p style="font-size: 35px;">Cadastrar Evento</p>
+</div>
+
+<div class="container">
+  <%= form_for @evento, url: evento_path, method: :put do |f| %>  
+         
+    <div class="input-field">
+        <%= f.label :titulo, "Título" %>
+        <%= f.text_field :titulo, class: "validate", required: :true, maxlength: 100 %> 
+    </div> 
+
+    <div class="input-field">
+        <%= f.label :descricao, "Descrição" %>              
+        <textarea id="evento_descricao" name ="evento[descricao]" class="materialize-textarea" data-length="255" required><%= @evento.descricao %></textarea>               
+    </div>    
+
+    <div class="input-field">
+        <%= f.label :local %>
+        <%= f.text_field :local, class: "validate", required: :true, maxlength: 100 %> 
+    </div>    
+
+    <div class="input-field">
+        <%= f.label :data %>
+        <input class="datepicker" required="required" name="evento[data]" id="evento_data" type="text" value="<%=@evento.data.to_s(:evento_data)%>">
+    </div> 
+
+    <div class="file-field input-field">
+        <div class="btn">
+            <%= material_icon.cloud_upload %>
+            <%= f.file_field :images, multiple: true %>
+        </div>
+        <div class="file-path-wrapper">
+            <%= text_field_tag nil, (@evento.images), {id: nil, class: 'file-path validate', placeholder: 'Escolha suas fotos'} %>
+        </div>
+    </div>   
+          
+
+    <div class="row center">
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn"  %>        
+
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn grey" %>        
+    </div>
+
+  <% end %>
+</div>
+
+

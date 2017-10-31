@@ -33,7 +33,7 @@ class EditaisController < ApplicationController
     def update
         if @edital.update(edital_params)
             flash[:notice] = "Edital atualizado com sucesso."
-            redirect_to edital_path(@edital)
+            redirect_to editais_path
         else
             flash[:alert] = "Erro ao atualizar edital."
             render :edit

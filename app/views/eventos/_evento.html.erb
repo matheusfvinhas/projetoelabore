@@ -2,8 +2,19 @@
     <tr>
         <td><%= evento.titulo %></td>
         <td><%= evento.descricao %></td>
-        <td><%= evento.data %></td>
+        <td><%= evento.data.to_s(:evento_data) %></td>
         <td><%= evento.local %></td>
         <td><%= evento.images? %></td>
+        <% if current_user and current_user.admin? %> 
+            <td><%= link_to edit_evento_path(evento) do %>
+                    <%= material_icon.edit %>
+                <% end %>
+            </td> 
+            <td>
+                <%= button_to evento_path(evento), class: "waves-effect waves-light btn red right", data: {:confirm => 'Tem certeza que deseja deletar esse evento?'}, :method => :delete do %>
+                    <%= material_icon.delete_forever %>
+                <% end %>  
+            </td>     
+        <% end %>
     </tr>
 </body>

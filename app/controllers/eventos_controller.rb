@@ -13,7 +13,7 @@ class EventosController < ApplicationController
         
     end
 
-    def create
+    def create        
         @evento = Evento.new(evento_params)
         @evento.usuario_id = current_user.id
 
@@ -33,7 +33,7 @@ class EventosController < ApplicationController
     def update
         if @evento.update(evento_params)
             flash[:notice] = "Evento atualizado com sucesso."
-            redirect_to evento_path(@evento)
+            redirect_to eventos_path
         else
             flash[:alert] = "Erro ao atualizar evento."
             render :edit
