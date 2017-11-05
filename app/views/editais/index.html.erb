@@ -1,33 +1,13 @@
-<div class="container center">
-  <p style="font-size: 35px;">Editais</p>
-</div>
+<div>
 
-<div class="right">       
+    <p style="font-size: 35px;">Editais</p>   
+
     <% if current_user and current_user.admin? %>
-        <%= link_to new_editai_path, class: "waves-effect waves-light btn" do %>
+        <%= link_to new_editai_path, class: "waves-effect waves-light btn right" do %>
             <%= material_icon.add_circle %>
         <% end %> 
-    <% end %>     
-  
-</div>
-
-<div class="center">  
-
-    <table class="highlight bordered responsive-table">
-        
-        <head>
-            <tr>
-                <th>Titulo</th>
-                <th>Descricao</th>
-                <th>Imagens</th>                
-            </tr>
-        </head>
-
+    <% end %> 
          
-        <%= render partial: "editais/edital", collection: @editais, as: :edital %>
-
-    </table>        
-
-     
+    <%= render partial: "editais/edital", collection: @editais, as: :edital %>     
   
 </div>
