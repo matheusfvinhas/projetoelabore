@@ -5,7 +5,7 @@ class CreateEventos < ActiveRecord::Migration[5.1]
       t.string :descricao, limit: 255
       t.string :local, limit: 100
       t.datetime :data
-      t.integer :usuario_id
+      t.integer :user_id
       t.json :images
 
       t.timestamps

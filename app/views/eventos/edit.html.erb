@@ -1,9 +1,9 @@
 <div class="container center">
-  <p style="font-size: 35px;">Cadastrar Evento</p>
+  <p style="font-size: 35px;">Editar Evento</p>
 </div>
 
 <div class="container">
-  <%= form_for @evento, url: evento_path, method: :put do |f| %>  
+  <%= form_for @evento do |f| %>  
          
     <div class="input-field">
         <%= f.label :titulo, "Título" %>
@@ -31,7 +31,7 @@
             <%= f.file_field :images, multiple: true %>
         </div>
         <div class="file-path-wrapper">
-            <%= text_field_tag nil, (@evento.images), {id: nil, class: 'file-path validate', placeholder: 'Escolha suas fotos'} %>
+            <%= text_field_tag nil, @evento.images, {id: nil, class: 'file-path validate', placeholder: 'Escolha suas fotos'} %>
         </div>
     </div>   
           

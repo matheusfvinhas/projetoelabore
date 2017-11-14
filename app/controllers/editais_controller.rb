@@ -6,7 +6,7 @@ class EditaisController < ApplicationController
     end
 
     def index
-        @editais = Edital.all
+        @editais = Edital.all.order(created_at: :desc)
     end
 
     def show
@@ -15,7 +15,7 @@ class EditaisController < ApplicationController
 
     def create
         @edital = Edital.new(edital_params)
-        @edital.usuario_id = current_user.id
+        @edital.user_id = current_user.id
 
         if @edital.save
             flash[:notice] = "Edital salvo com sucesso."

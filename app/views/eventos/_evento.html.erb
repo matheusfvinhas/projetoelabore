@@ -4,8 +4,8 @@
             <div class="card-content white-text">
                 <span class="card-title"><%= evento.titulo %></span>
                 <p><%= evento.descricao %></p>
-                <p><%= evento.data.to_s(:evento_data) %></p>
-                <p><%= evento.local %></p>
+                <p>Data: <%= evento.data.to_s(:evento_data) %></p>
+                <p>Local: <%= evento.local %></p>
                 <p><%= evento.images? %></p>
             </div>
             <div align="right" class="card-action">

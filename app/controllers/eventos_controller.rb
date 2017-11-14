@@ -6,7 +6,7 @@ class EventosController < ApplicationController
     end
 
     def index
-        @eventos = Evento.all
+        @eventos = Evento.all.order(data: :desc)
     end
 
     def show
@@ -15,7 +15,7 @@ class EventosController < ApplicationController
 
     def create                   
         @evento = Evento.new(evento_params)
-        @evento.usuario_id = current_user.id
+        @evento.user_id = current_user.id
 
         if @evento.save
             flash[:notice] = "Evento salvo com sucesso."

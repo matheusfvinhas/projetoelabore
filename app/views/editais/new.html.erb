@@ -21,7 +21,7 @@
             <%= f.file_field :document %>
         </div>
         <div class="file-path-wrapper">
-            <%= text_field_tag nil, (f.object.document.original_filename unless f.object.document.blank?), {id: nil, class: 'file-path validate', placeholder: 'Arquivo'} %>
+            <%= text_field_tag nil, (f.object.document.original_filename unless f.object.document.blank?), {id: nil, class: 'file-path validate', placeholder: 'Your filename here!'} %>
         </div>
     </div>   
           
@@ -34,5 +34,6 @@
 
   <% end %>
 </div>
+
 
 

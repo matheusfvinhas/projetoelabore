@@ -10,9 +10,6 @@ class User < ApplicationRecord
   validates :responsavel, presence: true, length: { maximum: 50 }
   validates :telefone, length: { maximum: 15 }
   validates :minicv, length: { maximum: 5000 }
-  validates :tipo, presence: true   
-  
-  has_many :eventos
-  has_many :editais
+  validates :tipo, presence: true  
   
 end
