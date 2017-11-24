@@ -18,21 +18,24 @@ ActiveRecord::Schema.define(version: 20171003222959) do
   create_table "editals", force: :cascade do |t|
     t.string "titulo", limit: 100
     t.text "descricao"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "document"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_editals_on_user_id"
   end
 
   create_table "eventos", force: :cascade do |t|
     t.string "titulo", limit: 100
     t.string "descricao", limit: 255
     t.string "local", limit: 100
-    t.datetime "data"
-    t.integer "user_id"
+    t.date "data"
+    t.time "hora"
+    t.bigint "user_id"
     t.json "images"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_eventos_on_user_id"
   end
 
   create_table "parceiros", force: :cascade do |t|
@@ -62,4 +65,6 @@ ActiveRecord::Schema.define(version: 20171003222959) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "editals", "users"
+  add_foreign_key "eventos", "users"
 end

@@ -1,5 +1,7 @@
 class Evento < ApplicationRecord
     mount_uploaders :images, ImageUploader
+
+    belongs_to :user
     
     validates :titulo, presence: true, length: { maximum: 100 }
     validates :descricao, presence: true, length: { maximum: 255 }

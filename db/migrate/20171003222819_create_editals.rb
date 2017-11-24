@@ -3,7 +3,7 @@ class CreateEditals < ActiveRecord::Migration[5.1]
     create_table :editals do |t|
       t.string :titulo, limit: 100
       t.text :descricao, limit: 255
-      t.integer :user_id
+      t.references :user, index: true, foreign_key: true
       t.string :document
       
       t.timestamps

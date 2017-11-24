@@ -6,7 +6,7 @@
                 <p><%= evento.descricao %></p>
                 <p>Data: <%= evento.data.to_s(:evento_data) %></p>
                 <p>Local: <%= evento.local %></p>
-                <p><%= evento.images? %></p>
+                <p><%= evento.images? %></p>                                              
             </div>
             <div align="right" class="card-action">
                 <% if current_user and current_user.admin? %>

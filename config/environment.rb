@@ -5,4 +5,4 @@ require 'carrierwave/orm/activerecord'
 # Initialize the Rails application.
 Rails.application.initialize!
 
-Time::DATE_FORMATS[:evento_data] = "%d/%m/%Y - %I:%M%p"
+Time::DATE_FORMATS[:evento_data] = "%d/%m/%Y"
