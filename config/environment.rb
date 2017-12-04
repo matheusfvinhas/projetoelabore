@@ -6,3 +6,4 @@ require 'carrierwave/orm/activerecord'
 Rails.application.initialize!
 
 Time::DATE_FORMATS[:evento_data] = "%d/%m/%Y"
+Time::DATE_FORMATS[:evento_hora] = "%H:%M"

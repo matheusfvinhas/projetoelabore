@@ -62,6 +62,14 @@ $( document ).on('turbolinks:load', function() {
         event.stopPropagation();
         $(".datepicker").first().pickadate("picker").open();
   });
+  $('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'    
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'Ok', // text for done-button
+    cleartext: 'Limpar', // text for clear-button
+    canceltext: 'Fechar', // Text for cancel-button
+    autoclose: true // automatic close timepicker       
+  });
 });
 
     
