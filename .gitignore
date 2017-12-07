@@ -20,8 +20,6 @@
 
 .byebug_history
 
-/db/seeds.rb
-/config/environments/development.rb
-/config/environments/production.rb
+.env
 
 public/uploads

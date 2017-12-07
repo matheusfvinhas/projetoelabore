@@ -14,8 +14,7 @@ class EventosController < ApplicationController
     end
 
     def create                   
-        @evento = Evento.new(evento_params)
-        @evento.user_id = current_user.id
+        @evento = Evento.new(evento_params)        
 
         if @evento.save
             flash[:notice] = "Evento salvo com sucesso."
@@ -55,7 +54,7 @@ class EventosController < ApplicationController
         end
 
         def evento_params
-            params.require(:evento).permit(:titulo, :descricao, :local, :data, :hora, {images: []})
+            params.require(:evento).permit(:titulo, :descricao, :local, :data, :hora, {images: []}).merge(user_id: current_user.id)
         end
 
 end

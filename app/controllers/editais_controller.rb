@@ -14,8 +14,7 @@ class EditaisController < ApplicationController
     end
 
     def create
-        @edital = Edital.new(edital_params)
-        @edital.user_id = current_user.id
+        @edital = Edital.new(edital_params)        
 
         if @edital.save
             flash[:notice] = "Edital salvo com sucesso."
@@ -55,6 +54,6 @@ class EditaisController < ApplicationController
         end
 
         def edital_params
-            params.require(:edital).permit(:titulo, :descricao, :document)
+            params.require(:edital).permit(:titulo, :descricao, :document).merge(user_id: current_user.id)
         end
 end

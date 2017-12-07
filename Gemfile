@@ -18,6 +18,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 
 gem 'devise'
+gem 'devise-i18n'
 gem 'i18n'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
@@ -30,6 +31,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'rails-controller-testing'  
+  gem 'dotenv-rails'
 end
 
 group :test do
