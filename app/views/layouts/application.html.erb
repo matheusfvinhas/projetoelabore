@@ -15,14 +15,14 @@
     <main>
       <% if notice %>
         <script type="text/javascript">
-          Materialize.toast('<%= notice %>', 2000, 'green')
+          Materialize.toast('<%= notice %>', 2500, 'green')
         </script>
       <% end %>
       <% if alert %>
         <script type="text/javascript">
-          Materialize.toast('<%= alert %>', 2000, 'red')
+          Materialize.toast('<%= alert %>', 2500, 'red')
         </script>
-      <% end %>
+      <% end %>      
 
       <div class="container">
         <%= yield %>
