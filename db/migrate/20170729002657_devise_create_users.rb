@@ -5,12 +5,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.string :username, limit: 20
-      t.string :nome, limit: 50
-      t.string :responsavel, limit: 50
-      t.string :telefone, limit: 15
-      t.string :minicv, limit: 5000
-      t.integer :tipo
-      t.string :novo_usuario, limit: 1
+      t.string :name, limit: 50
+      t.string :responsible, limit: 50
+      t.string :telephone, limit: 15
+      t.string :mini_cv, limit: 5000
+      t.integer :kind
+      t.string :new_user, limit: 1
 
       ## Recoverable
       t.string   :reset_password_token

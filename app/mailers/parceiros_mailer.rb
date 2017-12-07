@@ -5,11 +5,11 @@ class ParceirosMailer < ApplicationMailer
   #
   #   en.parceiros_mailer.pedir_parceria.subject
   #
-  def pedir_parceria(nome, responsavel, email, sobre)
-    @nome = nome
-    @responsavel = responsavel
+  def new_partner(name, responsible, email, about)
+    @name = name
+    @responsible = responsible
     @email = email
-    @sobre = sobre
+    @about = about
     mail to: 'matheusfvinhas@gmail.com', subject: "Novo Pedido de Parceria"
   end
 end

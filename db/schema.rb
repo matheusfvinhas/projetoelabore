@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20171003222959) do
   enable_extension "plpgsql"
 
   create_table "editals", force: :cascade do |t|
-    t.string "titulo", limit: 100
-    t.text "descricao"
+    t.string "title", limit: 100
+    t.text "description"
     t.bigint "user_id"
     t.string "document"
     t.datetime "created_at", null: false
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20171003222959) do
   end
 
   create_table "eventos", force: :cascade do |t|
-    t.string "titulo", limit: 100
-    t.string "descricao", limit: 255
+    t.string "title", limit: 100
+    t.string "description", limit: 255
     t.string "local", limit: 100
-    t.date "data"
-    t.time "hora"
+    t.date "date"
+    t.time "time"
     t.bigint "user_id"
     t.json "images"
     t.datetime "created_at", null: false
@@ -39,10 +39,11 @@ ActiveRecord::Schema.define(version: 20171003222959) do
   end
 
   create_table "parceiros", force: :cascade do |t|
-    t.string "nome", limit: 50
-    t.string "responsavel", limit: 50
+    t.string "name", limit: 50
+    t.string "responsible", limit: 50
     t.string "email", limit: 50
-    t.text "sobre"
+    t.text "about"
+    t.string "confirmed", limit: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,12 +52,12 @@ ActiveRecord::Schema.define(version: 20171003222959) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "username", limit: 20
-    t.string "nome", limit: 50
-    t.string "responsavel", limit: 50
-    t.string "telefone", limit: 15
-    t.string "minicv", limit: 5000
-    t.integer "tipo"
-    t.string "novo_usuario", limit: 1
+    t.string "name", limit: 50
+    t.string "responsible", limit: 50
+    t.string "telephone", limit: 15
+    t.string "mini_cv", limit: 5000
+    t.integer "kind"
+    t.string "new_user", limit: 1
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "created_at", null: false

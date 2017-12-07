@@ -6,14 +6,14 @@ class User < ApplicationRecord
   has_many :editais
 
   devise :database_authenticatable, :recoverable, :registerable
-  enum tipo: [:admin, :professor, :aluno]
+  enum kind: [:admin, :teacher, :student]
 
   validates :email, presence: true        
   validates :username, length: { maximum: 20 }
-  validates :nome, presence: true, length: { maximum: 50 }
-  validates :responsavel, presence: true, length: { maximum: 50 }
-  validates :telefone, length: { maximum: 15 }
-  validates :minicv, length: { maximum: 5000 }
-  validates :tipo, presence: true  
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :responsible, presence: true, length: { maximum: 50 }
+  validates :telephone, length: { maximum: 15 }
+  validates :mini_cv, length: { maximum: 5000 }
+  validates :kind, presence: true  
   
 end

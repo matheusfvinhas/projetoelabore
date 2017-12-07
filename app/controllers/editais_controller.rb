@@ -54,6 +54,6 @@ class EditaisController < ApplicationController
         end
 
         def edital_params
-            params.require(:edital).permit(:titulo, :descricao, :document).merge(user_id: current_user.id)
+            params.require(:edital).permit(:title, :description, :document).merge(user_id: current_user.id)
         end
 end
