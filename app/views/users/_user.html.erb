@@ -1,10 +1,10 @@
 <body>    
     <tr>
-        <td><%= user.nome %></td>
-        <td><%= user.responsavel %></td>
+        <td><%= user.name %></td>
+        <td><%= user.responsible %></td>
         <td><%= user.email %></td>
-        <td><%= user.telefone %></td>
-        <td><%= user.tipo %></td>
+        <td><%= user.telephone %></td>
+        <td><%= user.kind %></td>
         <td>
             <%= button_to delete_user_path(user), class: "waves-effect waves-light btn red right", data: {:confirm => 'Tem certeza que deseja deletar esse usuário?'},     :method => :delete do %>
                 <%= material_icon.delete_forever %>

@@ -15,24 +15,24 @@
       </div> 
       
       <div class="input-field">
-        <%= f.label :nome %>
-        <%= f.text_field :nome, class: "validate", required: :true, maxlength: 50 %> 
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "validate", required: :true, maxlength: 50 %> 
       </div> 
 
       <div class="row">
         <div class="input-field col s6">
-          <%= f.label :responsavel, "Responsável" %>
-          <%= f.text_field :responsavel, class: "validate", required: :true, maxlength: 50 %> 
+          <%= f.label :responsible, "Responsável" %>
+          <%= f.text_field :responsible, class: "validate", required: :true, maxlength: 50 %> 
         </div>    
       
         <div class="input-field col s6">
-          <%= f.label :telefone %>
-          <%= f.telephone_field :telefone, class: "validate", maxlength: 15 %>
+          <%= f.label :telephone %>
+          <%= f.telephone_field :telephone, class: "validate", maxlength: 15 %>
         </div> 
       </div>      
 
       <div class="input-field">        
-        <%= f.select :tipo, [["Escolha o tipo do usuário", ""], ["Administrador", :admin], ["Professor", :professor], ["Aluno", :aluno]],  required: :true %> 
+        <%= f.select :kind, [["Escolha o tipo do usuário", ""], ["Administrador", :admin], ["Professor", :professor], ["Aluno", :aluno]],  required: :true %> 
       </div>                   
 
       <div class="row center">

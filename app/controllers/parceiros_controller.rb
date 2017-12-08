@@ -1,16 +1,16 @@
 class ParceirosController < ApplicationController
 
     def new
-        @parceiro = Parceiro.new
+        @partner = Parceiro.new
     end
 
     def index
-        @parceiros = Parceiro.all.order(created_at: :desc)
+        @partner = Parceiro.all.order(created_at: :desc)
     end
 
     def confirm_partner_apply
-        @parceiro = Parceiro.find(params[:id])
-        @user = create_user(parceiro)        
+        @partner = Parceiro.find(params[:id])
+        @user = create_user(@partner)        
     
         if @user.save
             flash[:notice] = 'Parceria confirmada com sucesso.'
@@ -25,12 +25,12 @@ class ParceirosController < ApplicationController
     end
 
     def send_partner_apply
-        @parceiro = Parceiro.new(parceiro_params)
-        @parceiro.confirmed = 'N'
+        @partner = Parceiro.new(partner_params)
+        @partner.confirmed = 'N'
         
-        if @parceiro.save
+        if @partner.save
             flash[:notice] = 'Sua solicitação foi enviada com sucesso.'
-            ParceirosMailer.new_partner(@parceiro.name, @parceiro.responsible, @parceiro.email, @parceiro.about).deliver_later
+            ParceirosMailer.new_partner(@partner).deliver_later
             redirect_to root_path
         else
             flash[:alert] = "Erro ao enviar solicitação."  
@@ -40,13 +40,13 @@ class ParceirosController < ApplicationController
     end
 
     private
-        def parceiro_params()
+        def partner_params()
             params.require(:parceiro).permit(:name, :responsible, :email, :about)
         end
 
         def confirm_partner
-            @parceiro.confirmed = 'S'
-            @parceiro.save!
+            @partner.confirmed = 'S'
+            @partner.save!
         end
 
         def create_user(partner)

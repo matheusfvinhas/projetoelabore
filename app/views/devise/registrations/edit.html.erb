@@ -16,19 +16,19 @@
     </div> 
     
     <div class="input-field">
-      <%= f.label :nome %>
-      <%= f.text_field :nome, maxlength: 50, class: "validate", required: :true %> 
+      <%= f.label :name, "Nome" %>
+      <%= f.text_field :name, maxlength: 50, class: "validate", required: :true %> 
     </div> 
 
     <div class="row">
       <div class="input-field col s6">
-        <%= f.label :responsavel, "Responsável" %>
-        <%= f.text_field :responsavel, maxlength: 50, class: "validate", required: :true %> 
+        <%= f.label :responsible, "Responsável" %>
+        <%= f.text_field :responsible, maxlength: 50, class: "validate", required: :true %> 
       </div>    
     
       <div class="input-field col s6">
-        <%= f.label :telefone %>
-        <%= f.telephone_field :telefone, maxlength: 15, class: "validate", required: :true %>
+        <%= f.label :telephone %>
+        <%= f.telephone_field :telephone, maxlength: 15, class: "validate", required: :true %>
       </div> 
     </div>
 
@@ -44,10 +44,10 @@
       </div>  
     </div>
 
-    <% if current_user.professor? %>
+    <% if current_user.teacher? %>
       <div class="input-field">
-        <%= f.label :minicv, "Mini Curriculum" %>              
-        <textarea id="user_minicv" name ="user[minicv]" class="materialize-textarea" data-length="5000" required><%= resource.minicv %></textarea>               
+        <%= f.label :mini_cv, "Mini Curriculum" %>              
+        <textarea id="user_mini_cv" name ="user[mini_cv]" class="materialize-textarea" data-length="5000" required><%= resource.minicv %></textarea>               
       </div>    
     <% end %>
 

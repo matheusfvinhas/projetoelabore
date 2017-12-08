@@ -19,10 +19,10 @@
                 <%= link_to "Usuários", show_all_users_path %>  
                 <%= link_to "Pedidos de Parceria", parceiros_path %>             
             <% end %>
-            <% if current_user.professor? || current_user.admin? %>
+            <% if current_user.teacher? || current_user.admin? %>
                 <%= link_to "Cursos" %>  
             <% end %>
-            <% if current_user.professor? %>
+            <% if current_user.teacher? %>
                 <%= link_to "Alunos" %>  
             <% end %>
         </li>      
@@ -40,13 +40,13 @@
                 </ul>                            
                 <ul id="nav-right" class="right hide-on-med-and-down">                                  
                     <% if user_signed_in? %>  
-                        <% if current_user.aluno? %>
+                        <% if current_user.student? %>
                             <li><%= link_to "Cursos", "#", class: "waves-effect waves-light btn"%></li>
                         <% end %>                          
-                        <% if !current_user.aluno? %> 
+                        <% if !current_user.student? %> 
                             <li><a class="dropdown-button" href="#!" data-activates="cadastrar-dropdown">Cadastro<i class="material-icons right">view_list</i></a></li> 
                         <% end %>
-                        <li><a class="dropdown-button" href="#!" data-activates="user-dropdown"><%= current_user.nome %><i class="material-icons right">account_circle</i></a></li>                                    
+                        <li><a class="dropdown-button" href="#!" data-activates="user-dropdown"><%= current_user.name %><i class="material-icons right">account_circle</i></a></li>                                    
                     <% else %>
                         <li><%= link_to "Seja Nosso Parceiro", new_parceiro_path, class: "waves-effect waves-light btn"%></li>
                         <li><%= link_to "Entrar", new_user_session_path, class: "waves-effect waves-light btn"%></li>

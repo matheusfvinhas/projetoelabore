@@ -1,12 +1,12 @@
 class EditaisController < ApplicationController
-    before_action :set_edital, only: [:show, :edit, :update, :destroy]
+    before_action :set_notice, only: [:show, :edit, :update, :destroy]
 
     def new
-        @edital = Edital.new
+        @notice = Edital.new
     end
 
     def index
-        @editais = Edital.all.order(created_at: :desc)
+        @notices = Edital.all.order(created_at: :desc)
     end
 
     def show
@@ -14,9 +14,9 @@ class EditaisController < ApplicationController
     end
 
     def create
-        @edital = Edital.new(edital_params)        
+        @notice = Edital.new(notice_params)        
 
-        if @edital.save
+        if @notice.save
             flash[:notice] = "Edital salvo com sucesso."
             redirect_to editais_path
         else
@@ -30,7 +30,7 @@ class EditaisController < ApplicationController
     end
 
     def update
-        if @edital.update(edital_params)
+        if @notice.update(notice_params)
             flash[:notice] = "Edital atualizado com sucesso."
             redirect_to editais_path
         else
@@ -40,7 +40,7 @@ class EditaisController < ApplicationController
     end
 
     def destroy
-        if @edital.destroy
+        if @notice.destroy
             flash[:notice] = "Edital deletado com sucesso."
         else
             flash[:alert] = "Erro ao deletar edital."
@@ -49,11 +49,11 @@ class EditaisController < ApplicationController
     end
 
     private
-        def set_edital
-            @edital = Edital.find(params[:id])
+        def set_notice
+            @notice = Edital.find(params[:id])
         end
 
-        def edital_params
+        def notice_params
             params.require(:edital).permit(:title, :description, :document).merge(user_id: current_user.id)
         end
 end
