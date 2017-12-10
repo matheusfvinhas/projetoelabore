@@ -3,16 +3,16 @@
 </div>
 
 <div class="container">
-  <%= form_for @evento do |f| %>  
+  <%= form_for @event do |f| %>  
          
     <div class="input-field">
-        <%= f.label :titulo, "Título" %>
-        <%= f.text_field :titulo, class: "validate", required: :true, maxlength: 100 %> 
+        <%= f.label :title, "Título" %>
+        <%= f.text_field :title, class: "validate", required: :true, maxlength: 100 %> 
     </div> 
 
     <div class="input-field">
-        <%= f.label :descricao, "Descrição" %>              
-        <textarea id="evento_descricao" name ="evento[descricao]" class="materialize-textarea" data-length="255" required><%= @evento.descricao %></textarea>               
+        <%= f.label :description, "Descrição" %>              
+        <textarea id="evento_description" name ="evento[description]" class="materialize-textarea" data-length="255" required><%= @event.description %></textarea>               
     </div>    
 
     <div class="input-field">
@@ -21,13 +21,13 @@
     </div>    
 
     <div class="input-field">
-        <%= f.label :data %>
-        <input class="datepicker" required="required" name="evento[data]" id="evento_data" type="text">
+        <%= f.label :date, "Data"%>
+        <input class="datepicker" required="required" name="evento[date]" id="evento_date" type="text">
     </div> 
 
     <div class="input-field">
-        <%= f.label :hora %>
-        <input class="timepicker" required="required" name="evento[hora]" id="evento_hora" type="text">
+        <%= f.label :time %>
+        <input class="timepicker" required="required" name="evento[time]" id="evento_time" type="text">
     </div> 
 
     <div class="file-field input-field">

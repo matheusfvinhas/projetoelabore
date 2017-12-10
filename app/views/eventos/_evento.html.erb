@@ -2,17 +2,17 @@
     <div class="col s12 m12">
         <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-                <span class="card-title"><%= evento.titulo %></span>
-                <p><%= evento.descricao %></p>
-                <p>Data: <%= evento.data.strftime("%d/%m/%Y") %></p>
-                <p>Hora:: <%= evento.hora.to_s(:evento_hora) %></p>
-                <p>Local: <%= evento.local %></p>
-                <p><%= evento.images? %></p>                                                            
+                <span class="card-title"><%= event.title %></span>
+                <p><%= event.description %></p>
+                <p>Data: <%= event.date.strftime("%d/%m/%Y") %></p>
+                <p>Hora:: <%= event.time.to_s(:evento_hora) %></p>
+                <p>Local: <%= event.local %></p>
+                <p><%= event.images? %></p>                                                            
             </div>
             <div align="right" class="card-action">
                 <% if current_user and current_user.admin? %>
-                    <%= link_to "Editar", edit_evento_path(evento)%>
-                    <%= link_to "Deletar", evento_path(evento), data: {:confirm => 'Tem certeza que deseja deletar esse evento?'}, :method => :delete%>
+                    <%= link_to "Editar", edit_evento_path(event)%>
+                    <%= link_to "Deletar", evento_path(event), data: {:confirm => 'Tem certeza que deseja deletar esse evento?'}, :method => :delete%>
                 <% end %>           
             </div>
         </div>

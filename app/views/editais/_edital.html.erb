@@ -2,14 +2,14 @@
     <div class="col s12 m12">
         <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-                <span class="card-title"><%= edital.titulo %></span>
-                <p><%= edital.descricao %></p>               
+                <span class="card-title"><%= notice.title %></span>
+                <p><%= notice.description %></p>               
             </div>
             <div align="right" class="card-action">            
-                <%= link_to("Baixar Edital", edital.document.url, target: '_blank') if edital.document? %>
+                <%= link_to("Baixar Edital", notice.document.url, target: '_blank') if notice.document? %>
                 <% if current_user and current_user.admin? %>
-                    <%= link_to "Editar", edit_editai_path(edital) %>
-                    <%= link_to "Deletar", editai_path(edital),  data: {:confirm => 'Tem certeza que deseja deletar esse edital?'}, :method => :delete%> 
+                    <%= link_to "Editar", edit_editai_path(notice) %>
+                    <%= link_to "Deletar", editai_path(notice),  data: {:confirm => 'Tem certeza que deseja deletar esse edital?'}, :method => :delete%> 
                 <% end %>           
             </div>
         </div>

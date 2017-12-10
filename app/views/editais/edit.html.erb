@@ -3,16 +3,16 @@
 </div>
 
 <div class="container">
-  <%= form_for @edital, url: editai_path, method: :put do |f| %>  
+  <%= form_for @notice, url: editai_path, method: :put do |f| %>  
          
     <div class="input-field">
-        <%= f.label :titulo, "Título" %>
-        <%= f.text_field :titulo, class: "validate", required: :true, maxlength: 100 %> 
+        <%= f.label :title, "Título" %>
+        <%= f.text_field :title, class: "validate", required: :true, maxlength: 100 %> 
     </div> 
 
     <div class="input-field">
-        <%= f.label :descricao, "Descrição" %>              
-        <textarea id="edital_descricao" name ="edital[descricao]" class="materialize-textarea" data-length="255" required><%= @edital.descricao %></textarea>               
+        <%= f.label :description, "Descrição" %>              
+        <textarea id="edital_description" name ="edital[description]" class="materialize-textarea" data-length="255" required><%= @notice.description %></textarea>               
     </div>       
 
     <div class="file-field input-field">
@@ -21,7 +21,7 @@
             <%= f.file_field :document %>
         </div>
         <div class="file-path-wrapper">
-            <%= text_field_tag nil, (@edital.document.file.filename), {id: nil, class: 'file-path validate', placeholder: 'Your filename here!'} %>
+            <%= text_field_tag nil, (@notice.document.file.filename), {id: nil, class: 'file-path validate', placeholder: 'Your filename here!'} %>
         </div>
     </div>   
           

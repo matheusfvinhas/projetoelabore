@@ -8,33 +8,32 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       
     @user.password = Devise.friendly_token.first(8)
-    @user.new_user = "S"
+    @user.new_user = 'S'
 
     if @user.save
-      flash[:notice] = "Usuário salvo com sucesso."      
+      flash[:notice] = 'Usuário salvo com sucesso.'  
       UserMailer.welcome(@user).deliver_later
       redirect_to show_all_users_path
     else
-      flash[:alert] = "Erro ao salvar usuário."
+      flash[:alert] = 'Erro ao salvar usuário.'
       render :new
     end
-
   end  
 
   def show
-    @users = User.all.order(:tipo, :nome)
+    @users = User.all.order(:kind, :name)
   end
 
   def destroy    
     @user = User.find(params[:id])
     
     if @user.id == current_user.id
-      flash[:alert] = "Você não pode excluir seu próprio usuário."    
+      flash[:alert] = 'Você não pode excluir seu próprio usuário.'
     else
       if @user.destroy
-        flash[:notice] = "Usuário deletado com sucesso."      
+        flash[:notice] = 'Usuário deletado com sucesso.'
       else
-        flash[:alert] = "Erro ao tentar remover usuário."      
+        flash[:alert] = 'Erro ao tentar remover usuário.'
       end
     end
     redirect_to show_all_users_path

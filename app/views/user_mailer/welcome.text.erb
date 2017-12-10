@@ -1,3 +1,12 @@
-User#welcome
+Olá, <%= @user.nome %>!
 
-<%= @greeting %>, find me in app/views/user_mailer/welcome.text.erb
+Seja bem-vindo ao Elabore!
+
+Para acessar nossa plataforma utilize seu email: <%= @user.email %>
+E sua senha: <%= @user.password %>
+
+Para sua segurança, não esqueça de mudar sua senha no primeiro acesso.
+Por favor, não esqueça de atualizar suas informações!
+
+Obrigado,
+Equipe Elabore.

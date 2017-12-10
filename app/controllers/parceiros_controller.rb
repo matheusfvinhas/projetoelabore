@@ -26,7 +26,7 @@ class ParceirosController < ApplicationController
 
     def send_partner_apply
         @partner = Parceiro.new(partner_params)
-        @partner.confirmed = 'N'
+        @partner.confirmed = 'N'        
         
         if @partner.save
             flash[:notice] = 'Sua solicitação foi enviada com sucesso.'
