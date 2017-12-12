@@ -1,4 +1,4 @@
-class ParceirosMailer < ApplicationMailer
+class PartnersMailer < ApplicationMailer
   
   def new_partner(partner)
     @partner = partner

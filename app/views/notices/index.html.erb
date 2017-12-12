@@ -3,7 +3,7 @@
     <p style="font-size: 35px;">Editais</p>   
 
     <% if current_user and current_user.admin? %>
-        <%= link_to new_editai_path, class: "waves-effect waves-light btn right" do %>
+        <%= link_to new_notice_path, class: "waves-effect waves-light btn right #{PRIMARY_BUTTONS_COLOR}" do %>
             <%= material_icon.add_circle %>
         <% end %> 
     <% end %> 

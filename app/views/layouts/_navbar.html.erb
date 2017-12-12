@@ -17,7 +17,7 @@
         <li>
             <% if current_user.admin? %>
                 <%= link_to "Usuários", show_all_users_path %>  
-                <%= link_to "Pedidos de Parceria", parceiros_path %>             
+                <%= link_to "Pedidos de Parceria", partners_path %>             
             <% end %>
             <% if current_user.teacher? || current_user.admin? %>
                 <%= link_to "Cursos" %>  
@@ -35,8 +35,8 @@
             <div class="nav-wrapper light-blue accent-4">  
                 <%= link_to "Elabore", root_path, class: "brand-logo center" %>                
                 <ul id="nav-right" class="left hide-on-med-and-down">  
-                    <li><%= link_to "Eventos", eventos_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}" %></li>
-                    <li><%= link_to "Editais", editais_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li> 
+                    <li><%= link_to "Eventos", events_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}" %></li>
+                    <li><%= link_to "Editais", notices_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li> 
                 </ul>                            
                 <ul id="nav-right" class="right hide-on-med-and-down">                                  
                     <% if user_signed_in? %>  
@@ -48,7 +48,7 @@
                         <% end %>
                         <li><a class="dropdown-button" href="#!" data-activates="user-dropdown"><%= current_user.name %><i class="material-icons right">account_circle</i></a></li>                                    
                     <% else %>
-                        <li><%= link_to "Seja Nosso Parceiro", new_parceiro_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
+                        <li><%= link_to "Seja Nosso Parceiro", new_partner_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
                         <li><%= link_to "Entrar", new_user_session_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
                     <% end %> 
                 </ul>    

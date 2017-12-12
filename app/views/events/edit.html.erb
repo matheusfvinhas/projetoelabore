@@ -12,7 +12,7 @@
 
     <div class="input-field">
         <%= f.label :description, "Descrição" %>              
-        <textarea id="evento_description" name ="evento[description]" class="materialize-textarea" data-length="255" required><%= @event.description %></textarea>               
+        <textarea id="event_description" name ="event[description]" class="materialize-textarea" data-length="255" required><%= @event.description %></textarea>               
     </div>    
 
     <div class="input-field">
@@ -22,16 +22,16 @@
 
     <div class="input-field">
         <%= f.label :date %>
-        <input class="datepicker" required="required" name="evento[data]" id="evento_data" type="text" value="<%=@event.date.strftime("%d/%m/%Y")%>">
+        <input class="datepicker" required="required" name="event[data]" id="event_data" type="text" value="<%=@event.date.strftime("%d/%m/%Y")%>">
     </div> 
 
     <div class="input-field">
         <%= f.label :time %>
-        <input class="timepicker" required="required" name="evento[hora]" id="evento_hora" type="text" value="<%=@event.time.to_s(:evento_hora)%>">
+        <input class="timepicker" required="required" name="event[hora]" id="event_hora" type="text" value="<%=@event.time.to_s(:event_hora)%>">
     </div> 
 
     <div class="file-field input-field">
-        <div class="btn">
+        <div class="btn yellow darken-3">
             <%= material_icon.cloud_upload %>
             <%= f.file_field :images, multiple: true %>
         </div>
@@ -41,9 +41,9 @@
     </div>             
 
     <div class="row center">
-        <%= f.submit "Salvar", class: "waves-effect waves-light btn"  %>        
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>        
 
-        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn grey" %>        
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
     </div>
 
   <% end %>

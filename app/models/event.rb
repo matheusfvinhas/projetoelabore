@@ -1,4 +1,4 @@
-class Evento < ApplicationRecord
+class Event < ApplicationRecord
     mount_uploaders :images, ImageUploader
 
     belongs_to :user

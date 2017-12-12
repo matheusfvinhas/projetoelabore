@@ -1,12 +1,12 @@
-class EventosController < ApplicationController
+class EventsController < ApplicationController
     before_action :set_event, only: [:show, :edit, :update, :destroy]
 
     def new
-        @event = Evento.new
+        @event = Event.new
     end
 
     def index
-        @events = Evento.all.order(date: :desc)
+        @events = Event.all.order(date: :desc)
     end
 
     def show
@@ -14,11 +14,11 @@ class EventosController < ApplicationController
     end
 
     def create                   
-        @event = Evento.new(event_params)        
+        @event = Event.new(event_params)        
 
         if @event.save
             flash[:notice] = "Evento salvo com sucesso."
-            redirect_to eventos_path
+            redirect_to events_path
         else
             flash[:alert] = "Erro ao salvar evento."
             render :new
@@ -32,7 +32,7 @@ class EventosController < ApplicationController
     def update        
         if @event.update(event_params)
             flash[:notice] = "Evento atualizado com sucesso."
-            redirect_to eventos_path
+            redirect_to events_path
         else
             flash[:alert] = "Erro ao atualizar evento."
             render :edit
@@ -45,16 +45,16 @@ class EventosController < ApplicationController
         else
             flash[:alert] = "Erro ao deletar evento."
         end
-        redirect_to eventos_path
+        redirect_to events_path
     end
 
     private
         def set_event           
-            @event = Evento.find(params[:id])
+            @event = Event.find(params[:id])
         end
 
         def event_params
-            params.require(:evento).permit(:title, :description, :local, :date, :time, {images: []}).merge(user_id: current_user.id)
+            params.require(:event).permit(:title, :description, :local, :date, :time, {images: []}).merge(user_id: current_user.id)
         end
 
 end

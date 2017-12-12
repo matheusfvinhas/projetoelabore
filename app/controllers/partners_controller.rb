@@ -1,15 +1,15 @@
-class ParceirosController < ApplicationController
+class PartnersController < ApplicationController
 
     def new
-        @partner = Parceiro.new
+        @partner = Partner.new
     end
 
     def index
-        @partner = Parceiro.all.order(created_at: :desc)
+        @partner = Partner.all.order(created_at: :desc)
     end
 
     def confirm_partner_apply
-        @partner = Parceiro.find(params[:id])
+        @partner = Partner.find(params[:id])
         @user = create_user(@partner)        
     
         if @user.save
@@ -20,17 +20,17 @@ class ParceirosController < ApplicationController
             flash[:alert] = "Erro ao confirmar parceria."          
         end
 
-        redirect_to parceiros_path
+        redirect_to partners_path
         
     end
 
     def send_partner_apply
-        @partner = Parceiro.new(partner_params)
+        @partner = Partner.new(partner_params)
         @partner.confirmed = 'N'        
         
         if @partner.save
             flash[:notice] = 'Sua solicitação foi enviada com sucesso.'
-            ParceirosMailer.new_partner(@partner).deliver_later
+            PartnersMailer.new_partner(@partner).deliver_later
             redirect_to root_path
         else
             flash[:alert] = "Erro ao enviar solicitação."  
@@ -41,7 +41,7 @@ class ParceirosController < ApplicationController
 
     private
         def partner_params()
-            params.require(:parceiro).permit(:name, :responsible, :email, :about)
+            params.require(:partner).permit(:name, :responsible, :email, :about)
         end
 
         def confirm_partner

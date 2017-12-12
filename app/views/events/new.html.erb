@@ -12,7 +12,7 @@
 
     <div class="input-field">
         <%= f.label :description, "Descrição" %>              
-        <textarea id="evento_description" name ="evento[description]" class="materialize-textarea" data-length="255" required><%= @event.description %></textarea>               
+        <textarea id="event_description" name ="event[description]" class="materialize-textarea" data-length="255" required><%= @event.description %></textarea>               
     </div>    
 
     <div class="input-field">
@@ -22,16 +22,16 @@
 
     <div class="input-field">
         <%= f.label :date, "Data"%>
-        <input class="datepicker" required="required" name="evento[date]" id="evento_date" type="text">
+        <input class="datepicker" required="required" name="event[date]" id="event_date" type="text">
     </div> 
 
     <div class="input-field">
         <%= f.label :time %>
-        <input class="timepicker" required="required" name="evento[time]" id="evento_time" type="text">
+        <input class="timepicker" required="required" name="event[time]" id="event_time" type="text">
     </div> 
 
     <div class="file-field input-field">
-        <div class="btn">
+        <div class="btn yellow darken-3">
             <%= material_icon.cloud_upload %>
             <%= f.file_field :images, multiple: true %>
         </div>
@@ -42,9 +42,9 @@
           
 
     <div class="row center">
-        <%= f.submit "Salvar", class: "waves-effect waves-light btn"  %>        
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>        
 
-        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn grey" %>        
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
     </div>
 
   <% end %>

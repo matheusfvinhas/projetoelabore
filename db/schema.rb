@@ -15,17 +15,7 @@ ActiveRecord::Schema.define(version: 20171003222959) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "editals", force: :cascade do |t|
-    t.string "title", limit: 100
-    t.text "description"
-    t.bigint "user_id"
-    t.string "document"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_editals_on_user_id"
-  end
-
-  create_table "eventos", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string "title", limit: 100
     t.string "description", limit: 255
     t.string "local", limit: 100
@@ -35,10 +25,20 @@ ActiveRecord::Schema.define(version: 20171003222959) do
     t.json "images"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_eventos_on_user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "parceiros", force: :cascade do |t|
+  create_table "notices", force: :cascade do |t|
+    t.string "title", limit: 100
+    t.text "description"
+    t.bigint "user_id"
+    t.string "document"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notices_on_user_id"
+  end
+
+  create_table "partners", force: :cascade do |t|
     t.string "name", limit: 50
     t.string "responsible", limit: 50
     t.string "email", limit: 50
@@ -66,6 +66,6 @@ ActiveRecord::Schema.define(version: 20171003222959) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "editals", "users"
-  add_foreign_key "eventos", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "notices", "users"
 end

@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-  <%= form_for @notice, url: editai_path, method: :put do |f| %>  
+  <%= form_for @notice do |f| %>  
          
     <div class="input-field">
         <%= f.label :title, "Título" %>
@@ -12,24 +12,24 @@
 
     <div class="input-field">
         <%= f.label :description, "Descrição" %>              
-        <textarea id="edital_description" name ="edital[description]" class="materialize-textarea" data-length="255" required><%= @notice.description %></textarea>               
+        <textarea id="notice_description" name ="notice[description]" class="materialize-textarea" data-length="255" required><%= @notice.description %></textarea>               
     </div>       
 
     <div class="file-field input-field">
-        <div class="btn">
+        <div class="btn yellow darken-3">
             <%= material_icon.cloud_upload %>
             <%= f.file_field :document %>
         </div>
         <div class="file-path-wrapper">
-            <%= text_field_tag nil, (@notice.document.file.filename), {id: nil, class: 'file-path validate', placeholder: 'Your filename here!'} %>
+            <%= text_field_tag nil, (@notice.document.file.filename), {id: nil, class: 'file-path validate', placeholder: 'Escolha seu arquivo'} %>
         </div>
     </div>   
           
 
     <div class="row center">
-        <%= f.submit "Salvar", class: "waves-effect waves-light btn"  %>        
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>        
 
-        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn grey" %>        
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
     </div>
 
   <% end %>

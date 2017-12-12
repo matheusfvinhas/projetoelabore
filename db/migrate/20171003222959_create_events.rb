@@ -1,6 +1,6 @@
-class CreateEventos < ActiveRecord::Migration[5.1]
+class CreateEvents < ActiveRecord::Migration[5.1]
   def change
-    create_table :eventos do |t|
+    create_table :events do |t|
       t.string :title, limit: 100
       t.string :description, limit: 255
       t.string :local, limit: 100
