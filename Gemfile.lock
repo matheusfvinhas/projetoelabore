@@ -49,10 +49,11 @@ GEM
     brakeman (3.7.0)
     builder (3.2.3)
     byebug (9.0.6)
-    carrierwave (1.2.0)
+    carrierwave (1.2.1)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    carrierwave-i18n (0.2.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.3)
@@ -140,6 +141,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (5.0.4)
+      i18n (~> 0.7)
+      railties (~> 5.0)
     railties (5.1.2)
       actionpack (= 5.1.2)
       activesupport (= 5.1.2)
@@ -222,6 +226,7 @@ DEPENDENCIES
   binding_of_caller
   brakeman
   carrierwave
+  carrierwave-i18n
   devise
   devise-i18n
   dotenv-rails
@@ -237,6 +242,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.2)
   rails-controller-testing
+  rails-i18n
   rspec-rails
   sass-rails (~> 5.0)
   simplecov

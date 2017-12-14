@@ -14,7 +14,9 @@ class EventsController < ApplicationController
     end
 
     def create                   
-        @event = Event.new(event_params)        
+        @event = Event.new(event_params)    
+        binding.pry
+
 
         if @event.save
             flash[:notice] = "Evento salvo com sucesso."
