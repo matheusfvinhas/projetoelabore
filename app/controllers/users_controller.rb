@@ -8,11 +8,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       
     @user.password = Devise.friendly_token.first(8)
-    @user.new_user = 'S'
+    @user.new_user = 'S'    
 
     if @user.save
       flash[:notice] = 'Usuário salvo com sucesso.'  
-      UserMailer.welcome(@user).deliver_later
+      UserMailer.welcome(@user, @user.password).deliver_later
       redirect_to show_all_users_path
     else
       flash[:alert] = 'Erro ao salvar usuário.'
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     end
   end  
 
-  def show
+  def index
     @users = User.all.order(:kind, :name)
   end
 

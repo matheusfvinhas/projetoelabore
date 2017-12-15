@@ -1,0 +1,20 @@
+<body>    
+    <tr>
+        <td><%= partner.name %></td>
+        <td><%= partner.responsible %></td>
+        <td><%= partner.email %></td>          
+        <td><%= partner.confirmed ? 'Sim' : 'Não' %></td>      
+        <td>
+            <%= button_to partner_path(partner), class: "btn-floating btn-large waves-effect waves-light blue left", method: :get do %>
+                <%= material_icon.details %>
+            <% end %> 
+            <% if !partner.confirmed %>
+                <%= button_to confirm_partner_apply_path(partner), class: "btn-floating btn-large waves-effect waves-light green right", data: {:confirm => 'Tem certeza que deseja aprovar parceria?'}, method: :get do %>
+                    <%= material_icon.done %>
+                <% end %>    
+            <% end %>      
+        </td>        
+    </tr>
+</body>
+
+      

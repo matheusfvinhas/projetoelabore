@@ -5,17 +5,21 @@ class PartnersController < ApplicationController
     end
 
     def index
-        @partner = Partner.all.order(created_at: :desc)
+        @partners = Partner.all.order(created_at: :desc)
     end
 
-    def confirm_partner_apply
+    def show
+        @partner = Partner.find(params[:id])
+    end
+
+    def confirm_partner_apply        
         @partner = Partner.find(params[:id])
         @user = create_user(@partner)        
     
         if @user.save
             flash[:notice] = 'Parceria confirmada com sucesso.'
             confirm_partner            
-            UserMailer.welcome(@user).deliver_later            
+            UserMailer.welcome(@user, @user.password).deliver_later            
         else
             flash[:alert] = "Erro ao confirmar parceria."          
         end
@@ -26,7 +30,7 @@ class PartnersController < ApplicationController
 
     def send_partner_apply
         @partner = Partner.new(partner_params)
-        @partner.confirmed = 'N'        
+        @partner.confirmed = false      
         
         if @partner.save
             flash[:notice] = 'Sua solicitação foi enviada com sucesso.'
@@ -41,11 +45,11 @@ class PartnersController < ApplicationController
 
     private
         def partner_params()
-            params.require(:partner).permit(:name, :responsible, :email, :about)
+            params.require(:partner).permit(:name, :responsible, :email, :about, :telephone)
         end
 
         def confirm_partner
-            @partner.confirmed = 'S'
+            @partner.confirmed = true
             @partner.save!
         end
 
@@ -56,6 +60,8 @@ class PartnersController < ApplicationController
             user.email = partner.email
             user.password = Devise.friendly_token.first(8)
             user.new_user = 'S'
+            user.kind = :student
+            user.telephone = partner.telephone
             user
         end
 end

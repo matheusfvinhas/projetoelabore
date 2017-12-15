@@ -1,0 +1,36 @@
+<%= form_for @notice do |f| %>  
+        
+    <div class="input-field">
+        <%= f.label :title, "Título" %>
+        <%= f.text_field :title, class: "validate", required: :true, maxlength: 100 %> 
+    </div> 
+
+    <div class="input-field">
+        <%= f.label :description, "Descrição" %>    
+        <%= f.text_area :description, class: "materialize-textarea", required: :true,  data: {length: 255} %>                      
+    </div>       
+
+    <div class="file-field input-field">
+        <div class="btn yellow darken-3">
+            <%= material_icon.cloud_upload %>
+            <%= f.file_field :document %>
+        </div>
+        <div class="file-path-wrapper">
+            <%= text_field_tag nil, (@notice.document.file.filename if @notice.document?), {id: nil, class: 'file-path validate', placeholder: 'Escolha seu arquivo', required: true} %>
+        </div>
+    </div>   
+            
+
+    <div class="row center">
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>        
+
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
+    </div>
+
+<% end %>
+
+
+
+
+
+

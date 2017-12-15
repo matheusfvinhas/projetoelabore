@@ -6,11 +6,11 @@
                 <p><%= event.description %></p>
                 <p>Data: <%= l(event.date) %></p>
                 <p>Hora:: <%= event.time.to_s(:event_time) %></p>
-                <p>Local: <%= event.local %></p>
-                <p><%= event.images? %></p>                                                            
+                <p>Local: <%= event.local %></p>                                                                           
             </div>
             <div align="right" class="card-action">
                 <% if current_user and current_user.admin? %>
+                    <%= link_to "Galeria de Fotos", event_path(event) if event.images? %>
                     <%= link_to "Editar", edit_event_path(event)%>
                     <%= link_to "Deletar", event_path(event), data: {:confirm => 'Tem certeza que deseja deletar esse evento?'}, :method => :delete%>
                 <% end %>           

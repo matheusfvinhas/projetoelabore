@@ -1,0 +1,19 @@
+<div class="container center">
+  <p style="font-size: 35px;">Galeria de Fotos</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <% @event.images.each do |image| %>
+            <%= link_to image.url, target: '_blank' do %>
+                <%= image_tag image.thumb %>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="row center">
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
+    </div>
+</div>
+
+

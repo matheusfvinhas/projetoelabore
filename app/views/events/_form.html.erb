@@ -1,0 +1,57 @@
+<%= form_for @event, { html: {multipart: true}} do |f| %>  
+        
+    <div class="input-field">
+        <%= f.label :title, "Título" %>
+        <%= f.text_field :title, class: "validate", required: :true, maxlength: 100 %> 
+    </div> 
+
+    <div class="input-field">
+        <%= f.label :description, "Descrição" %>    
+        <%= f.text_area :description, class: "materialize-textarea", required: :true,  data: {length: 255} %>                      
+    </div>    
+
+    <div class="input-field">
+        <%= f.label :local %>
+        <%= f.text_field :local, class: "validate", required: :true, maxlength: 100 %> 
+    </div>    
+
+    <div class="input-field">
+        <%= f.label :date, "Data" %>
+        <%= f.text_field :date, class: "datepicker", required: :true %>         
+    </div> 
+
+    <div class="input-field">
+        <%= f.label :time, "Hora" %>
+        <%= f.text_field :time, class: "timepicker", required: :true %>         
+    </div> 
+
+    <div class="file-field input-field">
+        <div class="btn yellow darken-3">
+            <%= material_icon.cloud_upload %>
+            <%= f.file_field :images, multiple: true %>
+        </div>
+        <div class="file-path-wrapper">
+            <%= text_field_tag nil, nil, {id: nil, class: 'file-path validate', placeholder: 'Escolha suas fotos'} %>
+        </div>
+    </div>   
+
+    <% if @event.images? %>
+        <div class="row">
+            <% @event.images.each do |image| %>
+                <%= link_to image.url, target: '_blank' do %>
+                    <%= image_tag image.thumb %>
+                <% end %>
+            <% end %>
+        </div> 
+    <% end %>         
+
+    <div class="row center">
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>        
+
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
+    </div>
+
+<% end %>
+
+
+

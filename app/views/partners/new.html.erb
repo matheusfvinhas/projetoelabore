@@ -20,12 +20,17 @@
       <div class="input-field">
         <%= f.label :email %>
         <%= f.email_field :email, class: "validate", required: :true, maxlength: 50 %> 
-      </div>  
+      </div> 
 
       <div class="input-field">
-        <%= f.label :about, "Fale um pouco sobre a instituicão" %> 
-        <textarea id="parceiro_about" name="parceiro[about]" class="materialize-textarea" data-length="5000" required></textarea>               
-      </div>                     
+        <%= f.label :telephone, "Telefone" %>
+        <%= f.telephone_field :telephone, class: "validate", maxlength: 15 %>
+      </div> 
+
+      <div class="input-field">
+        <%= f.label :about, "Fale um pouco sobre a instituicão" %>    
+        <%= f.text_area :about, class: "materialize-textarea", required: :true,  data: {length: 5000} %>                      
+      </div>                           
 
       <div class="row center">
         <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>        

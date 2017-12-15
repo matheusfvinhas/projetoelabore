@@ -43,7 +43,8 @@ ActiveRecord::Schema.define(version: 20171003222959) do
     t.string "responsible", limit: 50
     t.string "email", limit: 50
     t.text "about"
-    t.string "confirmed", limit: 1
+    t.boolean "confirmed"
+    t.string "telephone", limit: 15
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

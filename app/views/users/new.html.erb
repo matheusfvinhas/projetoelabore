@@ -26,13 +26,13 @@
         </div>    
       
         <div class="input-field col s6">
-          <%= f.label :telephone %>
+          <%= f.label :telephone, "Telefone" %>
           <%= f.telephone_field :telephone, class: "validate", maxlength: 15 %>
         </div> 
       </div>      
 
       <div class="input-field">        
-        <%= f.select :kind, [["Escolha o tipo do usuário", ""], ["Administrador", :admin], ["Professor", :professor], ["Aluno", :aluno]],  required: :true %> 
+        <%= f.select :kind, [["Escolha o tipo do usuário", ""], ["Administrador", :admin], ["Professor", :teacher], ["Aluno", :student]],  required: :true %> 
       </div>                   
 
       <div class="row center">

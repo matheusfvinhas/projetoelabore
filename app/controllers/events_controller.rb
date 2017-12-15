@@ -14,8 +14,7 @@ class EventsController < ApplicationController
     end
 
     def create                   
-        @event = Event.new(event_params)    
-        binding.pry
+        @event = Event.new(event_params)           
 
 
         if @event.save
@@ -28,11 +27,11 @@ class EventsController < ApplicationController
     end
 
     def edit
-       
+        format_date_time
     end
 
     def update        
-        if @event.update(event_params)
+        if @event.update(event_params)            
             flash[:notice] = "Evento atualizado com sucesso."
             redirect_to events_path
         else
@@ -57,6 +56,11 @@ class EventsController < ApplicationController
 
         def event_params
             params.require(:event).permit(:title, :description, :local, :date, :time, {images: []}).merge(user_id: current_user.id)
+        end
+
+        def format_date_time
+            @event.date = I18n.l(@event.date)
+            @event.time = @event.time.to_s(:event_time)
         end
 
 end

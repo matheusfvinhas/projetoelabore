@@ -33,9 +33,12 @@ $( document ).on('turbolinks:load', function() {
     $('select').material_select();
     $('input#input_text, textarea#textarea1').characterCounter();
     $('.materialize-textarea').trigger('autoresize');
-    $('#user_telefone').formatter({
+    $('#user_telephone').formatter({
         'pattern': '({{99}}) {{99999}}-{{9999}}'       
-    });    
+    });   
+    $('#partner_telephone').formatter({
+        'pattern': '({{99}}) {{99999}}-{{9999}}'       
+    }); 
     var diaSemana = [ 'Domingo', 'Segunda-Feira', 'Terca-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado' ];
     var mesAno = [ 'Janeiro', 'Fevereiro', 'Marco', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ];
     var data = new Date();

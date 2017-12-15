@@ -3,8 +3,8 @@
     <p style="font-size: 35px;">Eventos</p>
 
     <% if current_user and current_user.admin? %>
-        <%= link_to new_event_path, class: "waves-effect waves-light btn right #{PRIMARY_BUTTONS_COLOR}" do %>
-            <%= material_icon.add_circle %>
+        <%= link_to new_event_path, class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
+            <%= material_icon.add %>
         <% end %>       
     <% end %>  
 
