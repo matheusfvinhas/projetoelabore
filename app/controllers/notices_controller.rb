@@ -1,4 +1,5 @@
 class NoticesController < ApplicationController
+    before_action :authenticate_user!, except: [:index]
     before_action :set_notice, only: [:show, :edit, :update, :destroy]
 
     def new

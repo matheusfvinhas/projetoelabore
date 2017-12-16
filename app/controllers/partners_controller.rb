@@ -1,4 +1,5 @@
 class PartnersController < ApplicationController
+    before_action :authenticate_user!, only: [:index, :show, :confirm_partner_apply]
 
     def new
         @partner = Partner.new
