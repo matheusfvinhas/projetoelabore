@@ -72,7 +72,7 @@ $( document ).on('turbolinks:load', function() {
     cleartext: 'Limpar', // text for clear-button
     canceltext: 'Fechar', // Text for cancel-button
     autoclose: true // automatic close timepicker       
-  });
+  });  
 });
 
     

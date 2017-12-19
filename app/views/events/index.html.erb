@@ -1,13 +1,16 @@
 <div>  
 
     <p style="font-size: 35px;">Eventos</p>
+    <div class="row">
+        <% if current_user and current_user.admin? %>
+            <%= link_to new_event_path, class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
+                <%= material_icon.add %>
+            <% end %>       
+        <% end %>  
+    </div>
 
-    <% if current_user and current_user.admin? %>
-        <%= link_to new_event_path, class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
-            <%= material_icon.add %>
-        <% end %>       
-    <% end %>  
-
-    <%= render @events %>
+    <div class="row">
+        <%= render @events %>
+    </div>
  
 </div>

@@ -1,13 +1,16 @@
 <div>
 
     <p style="font-size: 35px;">Editais</p>   
-
-    <% if current_user and current_user.admin? %>
-        <%= link_to new_notice_path, class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
-            <%= material_icon.add %>
+    <div class="row">
+        <% if current_user and current_user.admin? %>
+            <%= link_to new_notice_path, class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
+                <%= material_icon.add %>
+            <% end %> 
         <% end %> 
-    <% end %> 
-         
-    <%= render @notices %>     
-  
+    </div> 
+
+    <div class="row">
+        <%= render @notices %>     
+    </div>   
+    
 </div>
