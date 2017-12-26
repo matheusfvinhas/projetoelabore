@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   protected
     def after_sign_in_path_for(resource)
-      if resource.new_user == 'S'
+      if resource.new_user
         flash[:notice] = 'Por favor, atualize suas informações.'
         return edit_user_registration_path
       end

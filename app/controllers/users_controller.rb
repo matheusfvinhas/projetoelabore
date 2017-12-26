@@ -8,8 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
       
-    @user.password = Devise.friendly_token.first(8)
-    @user.new_user = 'S'    
+    @user.password = Devise.friendly_token.first(8)    
 
     if @user.save
       flash[:notice] = 'Usuário salvo com sucesso.'  

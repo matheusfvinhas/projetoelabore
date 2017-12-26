@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
 
-    resource.new_user = "N"
+    resource.new_user = false
 
     resource_updated = update_resource(resource, account_update_params)
     yield resource if block_given?

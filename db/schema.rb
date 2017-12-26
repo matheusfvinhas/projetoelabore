@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20171003222959) do
     t.string "responsible", limit: 50
     t.string "email", limit: 50
     t.text "about"
-    t.boolean "confirmed"
+    t.boolean "confirmed", default: false
     t.string "telephone", limit: 15
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20171003222959) do
     t.string "telephone", limit: 15
     t.string "mini_cv", limit: 5000
     t.integer "kind"
-    t.string "new_user", limit: 1
+    t.boolean "new_user", default: true
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "created_at", null: false

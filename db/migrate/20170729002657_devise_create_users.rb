@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :telephone, limit: 15
       t.string :mini_cv, limit: 5000
       t.integer :kind
-      t.string :new_user, limit: 1
+      t.boolean :new_user, default: true
 
       ## Recoverable
       t.string   :reset_password_token
