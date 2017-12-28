@@ -6,7 +6,7 @@ class PartnersController < ApplicationController
     end
 
     def index
-        @partners = Partner.all.order(created_at: :desc)
+        @partners = Partner.all.order(created_at: :desc).page(params[:page]).per(10)
     end
 
     def show

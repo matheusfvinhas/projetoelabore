@@ -2,8 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   
-  has_many :eventos
-  has_many :editais
+  has_many :events
+  has_many :notices
 
   devise :database_authenticatable, :recoverable, :registerable
   enum kind: [:admin, :teacher, :student]

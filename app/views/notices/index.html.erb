@@ -12,5 +12,9 @@
     <div class="row">
         <%= render @notices %>     
     </div>   
+
+    <div class="row center">
+        <%= paginate @notices, window: 2 %>
+    </div>
     
 </div>

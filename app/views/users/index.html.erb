@@ -24,13 +24,15 @@
                 <th></th>
             </tr>
         </head>
+         
+        <%= render @users %>        
+
+    </table>      
 
          
-        <%= render @users %>
-
-    </table>        
-
-     
+     <div class="row center">
+        <%= paginate @users, window: 2 %>
+    </div>  
   
 </div>
 

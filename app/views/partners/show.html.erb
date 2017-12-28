@@ -1,1 +1,43 @@
-<%= @partner.name %>
+<div class="container center">
+  <p style="font-size: 35px;">Detalhes do Pedido de Parceria</p>
+</div>
+
+<div class="container">      
+    <div class="row">
+        <h5><b>Nome da Instituicão: </b> <%= @partner.name %> </h5>       
+    </div> 
+
+    <div class="row">
+        <h5><b>Responsável: </b> <%= @partner.responsible %> </h5>       
+    </div> 
+
+    <div class="row">
+        <h5><b>Email: </b> <%= @partner.email %> </h5>       
+    </div>  
+
+    <div class="row">
+        <h5><b>Telefone: </b> <%= @partner.telephone %> </h5>       
+    </div>  
+
+    <div class="row">
+        <h5><b>Sobre: </b> <%= @partner.about %> </h5>       
+    </div>           
+
+    <div class="row">
+        <h5><b>Confirmado: </b> <%= @partner.confirmed ? 'Sim' : 'Não' %> </h5>       
+    </div> 
+ 
+    <div class="row center">
+        <% if !@partner.confirmed %>
+            <%= link_to "Confirmar", confirm_partner_apply_path(@partner), 
+                class: "btn waves-effect waves-light green", 
+                data: {:confirm => 'Tem certeza que deseja aprovar parceria?'}, 
+                method: :get 
+            %>                   
+        <% end %>         
+
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
+    </div>  
+</div>
+
+

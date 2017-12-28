@@ -9,3 +9,4 @@ Rails.application.initialize!
 Time::DATE_FORMATS[:event_time] = "%H:%M"
 PRIMARY_BUTTONS_COLOR = "yellow darken-3"
 BACK_BUTTONS_COLOR = "grey"
+

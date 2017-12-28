@@ -15,11 +15,14 @@
                 <th></th>
             </tr>
         </head>
-
          
         <%= render @partners %>
 
-    </table>        
+    </table>   
+
+    <div>
+        <%= paginate @partners, window: 2%>
+    </div>     
 
      
   

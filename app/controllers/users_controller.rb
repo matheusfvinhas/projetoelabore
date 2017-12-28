@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end  
 
   def index
-    @users = User.all.order(:kind, :name)
+    @users = User.all.order(:kind, :name).page(params[:page]).per(10)
   end
 
   def destroy    
