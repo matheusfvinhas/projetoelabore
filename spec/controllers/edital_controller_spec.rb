@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe EditaisController, type: :controller do
-
   describe "GET new" do
     it "get new @edital" do
       get :new
@@ -17,5 +16,4 @@ RSpec.describe EditaisController, type: :controller do
       expect(response).to be_success
     end
   end
-
 end
