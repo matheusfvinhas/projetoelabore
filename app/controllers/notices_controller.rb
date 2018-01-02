@@ -10,9 +10,7 @@ class NoticesController < ApplicationController
         @notices = Notice.all.order(created_at: :desc).page(params[:page]).per(6)
     end
 
-    def show
-        
-    end
+    def show; end
 
     def create
         @notice = Notice.new(notice_params)        
@@ -26,9 +24,7 @@ class NoticesController < ApplicationController
         end
     end
 
-    def edit
-
-    end
+    def edit; end
 
     def update
         if @notice.update(notice_params)

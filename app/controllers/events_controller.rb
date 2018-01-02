@@ -10,9 +10,7 @@ class EventsController < ApplicationController
         @events = Event.all.order(date: :desc).page(params[:page]).per(6)
     end
 
-    def show
-        
-    end
+    def show; end
 
     def create                   
         @event = Event.new(event_params)           
