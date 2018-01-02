@@ -7,7 +7,7 @@ RSpec.describe Evento, type: :model do
     it "is valid" do
       @evento = Evento.create(titulo: 'Evento de teste', descricao: 'Evento criado para teste',
                               local: "Rua dos teste, 1337", data: "21/12/2016", usuario_id: 1)
-        expect(@evento).to be_valid
+      expect(@evento).to be_valid
     end 
 
     it "without titulo" do
