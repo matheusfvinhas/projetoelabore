@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ParceirosController, type: :controller do
@@ -8,5 +10,4 @@ RSpec.describe ParceirosController, type: :controller do
           expect(response).to be_success
         end      
       end 
-
 end

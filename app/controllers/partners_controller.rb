@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PartnersController < ApplicationController
     before_action :authenticate_user!, only: %i[index show confirm_partner_apply]
 
@@ -41,10 +43,10 @@ class PartnersController < ApplicationController
             flash[:alert] = "Erro ao enviar solicitação."  
             render :new        
         end
-
     end
 
     private
+
         def partner_params
             params.require(:partner).permit(:name, :responsible, :email, :about, :telephone)
         end
