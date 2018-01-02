@@ -49,18 +49,18 @@ class EventsController < ApplicationController
     end
 
     private
-        def set_event           
-            @event = Event.find(params[:id])
-        end
+    def set_event           
+        @event = Event.find(params[:id])
+    end
 
-        def event_params
-            params.require(:event).permit(:title, :description, :local, :date, :time, { images: [] }).merge(user_id: current_user.id)
-        end
+    def event_params
+        params.require(:event).permit(:title, :description, :local, :date, :time, { images: [] }).merge(user_id: current_user.id)
+    end
 
-        def format_date_time
-            @event.date = I18n.l(@event.date)
-            @event.time = @event.time.to_s(:event_time)
-        end
+    def format_date_time
+        @event.date = I18n.l(@event.date)
+        @event.time = @event.time.to_s(:event_time)
+    end
 
 end
 

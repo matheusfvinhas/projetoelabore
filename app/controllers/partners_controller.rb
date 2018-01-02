@@ -45,23 +45,23 @@ class PartnersController < ApplicationController
     end
 
     private
-        def partner_params
-            params.require(:partner).permit(:name, :responsible, :email, :about, :telephone)
-        end
+    def partner_params
+        params.require(:partner).permit(:name, :responsible, :email, :about, :telephone)
+    end
 
-        def confirm_partner
-            @partner.confirmed = true
-            @partner.save!
-        end
+    def confirm_partner
+        @partner.confirmed = true
+        @partner.save!
+    end
 
-        def create_user(partner)
-            user = User.new
-            user.name = partner.name
-            user.responsible = partner.responsible
-            user.email = partner.email
-            user.password = Devise.friendly_token.first(8)            
-            user.kind = :student
-            user.telephone = partner.telephone
-            user
-        end
+    def create_user(partner)
+        user = User.new
+        user.name = partner.name
+        user.responsible = partner.responsible
+        user.email = partner.email
+        user.password = Devise.friendly_token.first(8)            
+        user.kind = :student
+        user.telephone = partner.telephone
+        user
+    end
 end

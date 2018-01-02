@@ -46,11 +46,11 @@ class NoticesController < ApplicationController
     end
 
     private
-        def set_notice
-            @notice = Notice.find(params[:id])
-        end
+    def set_notice
+        @notice = Notice.find(params[:id])
+    end
 
-        def notice_params
-            params.require(:notice).permit(:title, :description, :document).merge(user_id: current_user.id)
-        end
+    def notice_params
+        params.require(:notice).permit(:title, :description, :document).merge(user_id: current_user.id)
+    end
 end
