@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete 'delete_user/:id' => 'users#destroy', as: :delete_user     
   post 'enviar_pedido_parceria' => 'partners#send_partner_apply', as: :send_partner_apply
   get 'confirmar_parceria/:id' => 'partners#confirm_partner_apply', as: :confirm_partner_apply
-  resources :partners, only: [:new, :index, :show]
+  resources :partners, only: %i[new index show]
   root to: 'index#index'
   resources :events
   resources :notices
