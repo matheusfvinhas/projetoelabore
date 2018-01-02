@@ -62,4 +62,3 @@ class EventsController < ApplicationController
             @event.time = @event.time.to_s(:event_time)
         end
 end
-
