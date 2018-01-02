@@ -15,7 +15,6 @@ class EventsController < ApplicationController
     def create                   
         @event = Event.new(event_params)           
 
-
         if @event.save
             flash[:notice] = "Evento salvo com sucesso."
             redirect_to events_path
@@ -49,6 +48,7 @@ class EventsController < ApplicationController
     end
 
     private
+
         def set_event           
             @event = Event.find(params[:id])
         end
@@ -61,6 +61,5 @@ class EventsController < ApplicationController
             @event.date = I18n.l(@event.date)
             @event.time = @event.time.to_s(:event_time)
         end
-
 end
 
