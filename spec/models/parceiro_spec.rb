@@ -42,6 +42,5 @@ RSpec.describe Parceiro, type: :model do
         sobre: (0..5001).map { ('a'..'z').to_a[rand(26)] }.join)
         expect(@parceiro).to be_invalid
     end 
-
   end
 end
