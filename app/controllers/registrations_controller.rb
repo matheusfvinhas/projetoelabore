@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class RegistrationsController < Devise::RegistrationsController  
-    
+class RegistrationsController < Devise::RegistrationsController
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
@@ -27,7 +26,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
-    def account_update_params
-      params.require(:user).permit(:username, :name, :responsible, :telephone, :mini_cv, :email, :password, :current_password, :password_confirmation)
-    end
+  def account_update_params
+    params.require(:user).permit(:username, :name, :responsible, :telephone, :mini_cv, :email, :password, :current_password, :password_confirmation)
+  end
 end

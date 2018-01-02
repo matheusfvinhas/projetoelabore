@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
@@ -35,12 +35,12 @@ gem 'rails-i18n'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-byebug'
-  gem 'rails-controller-testing'  
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 
 group :test do
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
 end
 
 group :development do

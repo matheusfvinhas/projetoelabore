@@ -7,7 +7,7 @@ class CreatePartners < ActiveRecord::Migration[5.1]
       t.text :about, limit: 5000
       t.boolean :confirmed, default: false
       t.string :telephone, limit: 15
-      
+
       t.timestamps
     end
   end
