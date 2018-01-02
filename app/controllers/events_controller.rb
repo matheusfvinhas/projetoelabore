@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-    before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index]
     before_action :set_event, only: %i[show edit update destroy]
 
     def new
@@ -14,16 +14,16 @@ class EventsController < ApplicationController
 
     def show; end
 
-    def create                   
-      @event = Event.new(event_params)           
+    def create
+      @event = Event.new(event_params)
 
-        if @event.save
-          flash[:notice] = 'Evento salvo com sucesso.'
-            redirect_to events_path
-        else
-          flash[:alert] = 'Erro ao salvar evento.'
-            render :new
-        end
+      if @event.save
+        flash[:notice] = 'Evento salvo com sucesso.'
+          redirect_to events_path
+      else
+        flash[:alert] = 'Erro ao salvar evento.'
+          render :new
+      end
     end
 
     def edit
@@ -46,21 +46,21 @@ class EventsController < ApplicationController
       else
         flash[:alert] = 'Erro ao deletar evento.'
       end
-        redirect_to events_path
+      redirect_to events_path
     end
 
   private
 
-      def set_event           
-        @event = Event.find(params[:id])
-      end
+    def set_event
+      @event = Event.find(params[:id])
+    end
 
-      def event_params
-        params.require(:event).permit(:title, :description, :local, :date, :time, { images: [] }).merge(user_id: current_user.id)
-      end
+    def event_params
+      params.require(:event).permit(:title, :description, :local, :date, :time, images: []).merge(user_id: current_user.id)
+    end
 
-      def format_date_time
-        @event.date = I18n.l(@event.date)
-        @event.time = @event.time.to_s(:event_time)
-      end
+    def format_date_time
+      @event.date = I18n.l(@event.date)
+      @event.time = @event.time.to_s(:event_time)
+    end
 end

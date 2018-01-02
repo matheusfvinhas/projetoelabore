@@ -23,67 +23,65 @@ RSpec.describe User, type: :model do
 end
 
 RSpec.describe User, type: :model do
-    
     context 'validations' do
         it 'is valid' do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             tipo: :aluno, nome: 'Matheus', responsavel: 'Matheus')
             expect(@user).to be_valid
-        end    
+        end
 
         it 'without email' do
             @user = User.create(password: 'rap007',
             tipo: :aluno, nome: 'Matheus', responsavel: 'Matheus')
             expect(@user).to be_invalid
-        end         
+        end
 
         it 'without tipo' do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             nome: 'Matheus', responsavel: 'Matheus')
             expect(@user).to be_invalid
-        end 
+        end
 
         it 'without nome' do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             tipo: :aluno, responsavel: 'Matheus')
             expect(@user).to be_invalid
-        end 
+        end
 
         it 'without responsavel' do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             tipo: :aluno)
             expect(@user).to be_invalid
-        end 
+        end
 
         it 'username has more then 20 characters' do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             tipo: :aluno, nome: 'Matheus', responsavel: 'Matheus', username: (0..20).map { ('a'..'z').to_a[rand(26)] }.join)
             expect(@user).to be_invalid
-        end 
+        end
 
         it 'name has more then 50 characters' do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             tipo: :aluno, nome: (0..51).map { ('a'..'z').to_a[rand(26)] }.join, responsavel: 'Matheus')
             expect(@user).to be_invalid
-        end 
+        end
 
         it 'responsavel has more then 50 characters' do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             tipo: :aluno, nome: 'Matheus', responsavel: (0..51).map { ('a'..'z').to_a[rand(26)] }.join)
             expect(@user).to be_invalid
-        end 
+        end
 
         it 'telefone has more then 15 characters' do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             tipo: :aluno, nome: 'Matheus', responsavel: 'Matheus', telefone: (0..16).map { ('a'..'z').to_a[rand(26)] }.join)
             expect(@user).to be_invalid
-        end 
+        end
 
         it 'minicv has more then 5000 characters' do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             tipo: :aluno, nome: 'Matheus', responsavel: 'Matheus', minicv: (0..5001).map { ('a'..'z').to_a[rand(26)] }.join)
             expect(@user).to be_invalid
-        end 
-        
+        end
     end
 end

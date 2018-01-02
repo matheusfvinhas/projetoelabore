@@ -25,7 +25,7 @@ RSpec.describe Parceiro, type: :model do
     it 'without sobre' do
       @parceiro = Parceiro.create(nome: 'Novo parceiro', email: 'parceiro@parceiro.com.br')        
         expect(@parceiro).to be_invalid
-    end     
+    end
 
     it 'nome has more then 50 characters' do
       @parceiro = Parceiro.create(nome: (0..51).map { ('a'..'z').to_a[rand(26)] }.join, email: 'parceiro@parceiro.com.br',
@@ -42,7 +42,7 @@ RSpec.describe Parceiro, type: :model do
     it 'sobre has more then 5000 characters' do
       @parceiro = Parceiro.create(nome: 'Novo parceiro', email: 'parceiro@parceiro.com.br',
                                   sobre: (0..5001).map { ('a'..'z').to_a[rand(26)] }.join)
-        expect(@parceiro).to be_invalid
-    end 
+      expect(@parceiro).to be_invalid
+    end
   end
 end

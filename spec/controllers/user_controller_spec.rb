@@ -11,31 +11,28 @@ RSpec.describe UsersController do
   end  
   
   describe 'GET new' do
-    it 'get new' do      
+    it 'get new' do
       get :new
       expect(response).to be_success
-    end      
-  end  
+    end
+  end
 
   describe 'POST #create' do
     context 'when email is not valid' do
-      it 'save user and redirects to all users page' do       
-  
+      it 'save user and redirects to all users page' do  
         post :create, params: { user: { tipo: :aluno, nome: 'Matheus', responsavel: 'Matheus', telefone: '(12) 98169-7471' } }
-  
         expect(response).to render_template(:new)
         expect(flash[:alert]).to match(/^Erro ao salvar usuário./)
       end
     end
-  
+
     context 'when email is valid' do
-      it 'save user and redirects to all users page' do            
-  
+      it 'save user and redirects to all users page' do
         post :create, params: { user: { email: 'matheusfvinhas@gmail.com',
                                         tipo: :aluno, nome: 'Matheus', responsavel: 'Matheus', telefone: '(12) 98169-7471' } }
   
         expect(response).to redirect_to show_all_users_path   
-        expect(flash[:notice]).to match(/^Usuário salvo com sucesso./)         
+        expect(flash[:notice]).to match(/^Usuário salvo com sucesso./)
       end
     end
   end
