@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
-    mount_uploaders :images, ImageUploader
+  mount_uploaders :images, ImageUploader
 
     belongs_to :user
     
