@@ -5,6 +5,14 @@
 <div class="container">
   <%= form_for @partner, url: send_partner_apply_path, html: {class: "container"} do |f| %>  
 
+    <% if @partner.errors.any? %>
+      <% @partner.errors.full_messages.each do |message| %>  
+        <script type="text/javascript">
+          Materialize.toast('<%= message %>', 4000, 'red')
+        </script>
+      <% end %>
+    <% end %>
+
     <div class="input-field">     
       
       <div class="input-field">

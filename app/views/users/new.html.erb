@@ -5,6 +5,14 @@
 <div class="container">
   <%= form_for @user, url: create_user_path do |f| %>  
 
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |message| %>  
+        <script type="text/javascript">
+          Materialize.toast('<%= message %>', 4000, 'red')
+        </script>
+      <% end %>
+    <% end %>
+
     <div class="input-field">
         <%= f.label :email %>
         <% if current_user.admin? %>

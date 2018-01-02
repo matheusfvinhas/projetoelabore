@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     end
 
     def index
-      @events = Event.all.order(date: :desc).page(params[:page]).per(6)
+      @events = Event.all.order(date: :desc, time: :desc).page(params[:page]).per(6)
     end
 
     def show; end

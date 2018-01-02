@@ -1,4 +1,12 @@
 <%= form_for @event, { html: {multipart: true}} do |f| %>  
+
+    <% if @event.errors.any? %>
+      <% @event.errors.full_messages.each do |message| %>  
+        <script type="text/javascript">
+          Materialize.toast('<%= message %>', 4000, 'red')
+        </script>
+      <% end %>
+    <% end %>
         
     <div class="input-field">
         <%= f.label :title, "Título" %>

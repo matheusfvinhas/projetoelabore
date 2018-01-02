@@ -4,7 +4,14 @@
 
 <div class="container">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
+    
+    <% if resource.errors.any? %>
+      <% resource.errors.full_messages.each do |message| %>  
+        <script type="text/javascript">
+          Materialize.toast('<%= message %>', 4000, 'red')
+        </script>
+      <% end %>
+    <% end %>
     
     <div class="input-field">
       <%= f.label :email %>
