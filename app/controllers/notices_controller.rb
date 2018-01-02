@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class NoticesController < ApplicationController
-
     before_action :authenticate_user!, except: [:index]
     before_action :set_notice, only: %i[show edit update destroy]
 
@@ -47,7 +46,6 @@ class NoticesController < ApplicationController
       end
         redirect_to notices_path
     end
-
 
   private
 

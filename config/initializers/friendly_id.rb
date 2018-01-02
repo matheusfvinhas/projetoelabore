@@ -21,7 +21,6 @@ FriendlyId.defaults do |config|
   config.reserved_words = %w[new edit index session login logout users admin
     stylesheets assets javascripts images]
 
-
   #  ## Friendly Finders
   #
   # Uncomment this to use friendly finders in all models. By default, if
