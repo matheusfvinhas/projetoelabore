@@ -13,7 +13,7 @@ RSpec.describe Edital, type: :model do
     end 
 
     it "without descricao" do
-      @edital = Edital.create(titulo: 'Edital de teste',  usuario_id: 1)
+      @edital = Edital.create(titulo: 'Edital de teste', usuario_id: 1)
       expect(@edital).to be_invalid
     end 
 
