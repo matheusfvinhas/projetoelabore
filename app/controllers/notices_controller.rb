@@ -13,7 +13,7 @@ class NoticesController < ApplicationController
     def show; end
 
     def create
-        @notice = Notice.new(notice_params)        
+        @notice = Notice.new(notice_params)
 
         if @notice.save
             flash[:notice] = "Edital salvo com sucesso."
