@@ -27,7 +27,6 @@ class NoticesController < ApplicationController
     end
 
     def edit
-
     end
 
     def update
@@ -50,6 +49,7 @@ class NoticesController < ApplicationController
     end
 
     private
+
         def set_notice
             @notice = Notice.find(params[:id])
         end
