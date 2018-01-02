@@ -35,7 +35,7 @@ gem 'rails-i18n'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-byebug'
-  gem 'rails-controller-testing'  
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 
