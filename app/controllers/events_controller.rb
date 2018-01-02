@@ -64,4 +64,5 @@ class EventsController < ApplicationController
         @event.date = I18n.l(@event.date)
         @event.time = @event.time.to_s(:event_time)
       end
+
 end
