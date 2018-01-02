@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class PartnersController < ApplicationController
-
     before_action :authenticate_user!, only: %i[index show confirm_partner_apply]
 
     def new
