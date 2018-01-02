@@ -63,13 +63,24 @@
     <li><%= link_to "Eventos", events_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}" %></li>
     <li><%= link_to "Editais", notices_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
     <% if user_signed_in? %>
-        <% if current_user.student? %>
-            <li><%= link_to "Cursos", "#", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
+      <% if current_user.student? %>
+        <li><%= link_to "Cursos", "#", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
+      <% end %>
+      <% if !current_user.student? %>
+        <% if current_user.admin? %>
+          <li><%= link_to "Usuários", show_all_users_path %></li>
+          <li><%= link_to "Pedidos de Parceria", partners_path %></li>
         <% end %>
-        <% if !current_user.student? %>
-            <li><a class="dropdown-button" href="#!" data-activates="cadastrar-dropdown">Cadastro<i class="material-icons right">view_list</i></a></li>
+        <% if current_user.teacher? || current_user.admin? %>
+          <li><%= link_to "Cursos" %></li>
         <% end %>
-        <li><a class="dropdown-button" href="#!" data-activates="user-dropdown"><%= current_user.name %><i class="material-icons right">account_circle</i></a></li>
+        <% if current_user.teacher? %>
+          <li><%= link_to "Alunos" %></li>
+        <% end %> 
+      <% end %>
+      <li><%= link_to "Alterar Cadastro", edit_user_registration_path  %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
     <% else %>
         <li><%= link_to "Seja Nosso Parceiro", new_partner_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
         <li><%= link_to "Entrar", new_user_session_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
