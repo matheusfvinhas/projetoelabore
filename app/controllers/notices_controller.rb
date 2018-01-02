@@ -46,6 +46,7 @@ class NoticesController < ApplicationController
     end
 
     private
+
         def set_notice
             @notice = Notice.find(params[:id])
         end
