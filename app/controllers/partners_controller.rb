@@ -24,7 +24,7 @@ class PartnersController < ApplicationController
             confirm_partner            
             UserMailer.welcome(@user, @user.password).deliver_later            
         else
-          flash[:alert] = "Erro ao confirmar parceria."          
+          flash[:alert] = 'Erro ao confirmar parceria.'          
         end
 
         redirect_to partners_path
@@ -40,7 +40,7 @@ class PartnersController < ApplicationController
             PartnersMailer.new_partner(@partner).deliver_later
             redirect_to root_path
         else
-          flash[:alert] = "Erro ao enviar solicitação."  
+          flash[:alert] = 'Erro ao enviar solicitação.'  
             render :new        
         end
     end
