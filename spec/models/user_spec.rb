@@ -26,7 +26,7 @@ end
 RSpec.describe User, type: :model do
     
     context 'validations' do
-        it "should be valid" do
+        it "is valid" do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
             tipo: :aluno, nome: "Matheus", responsavel: "Matheus")
             expect(@user).to be_valid

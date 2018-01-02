@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Parceiro, type: :model do
   context 'validations' do
-    it "should be valid" do
+    it "is valid" do
         @parceiro = Parceiro.create(nome: 'Novo parceiro', email: 'parceiro@parceiro.com.br',
         sobre: "Bom parceiro")
         expect(@parceiro).to be_valid

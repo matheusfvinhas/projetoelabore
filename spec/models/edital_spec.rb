@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Edital, type: :model do
   context 'validations' do
-    it "should be valid" do
+    it "is valid" do
         @edital = Edital.create(titulo: 'Edital de teste', descricao: 'Edital criado para teste', usuario_id: 1)
         expect(@edital).to be_valid
     end
