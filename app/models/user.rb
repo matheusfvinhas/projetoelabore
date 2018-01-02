@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -6,7 +8,7 @@ class User < ApplicationRecord
   has_many :notices
 
   devise :database_authenticatable, :recoverable, :registerable
-  enum kind: [:admin, :teacher, :student]
+  enum kind: %i[admin teacher student]
 
   validates :email, presence: true        
   validates :username, length: { maximum: 20 }
