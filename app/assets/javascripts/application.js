@@ -19,6 +19,7 @@
 //= require_tree .
 
 $( document ).on('turbolinks:load', function() {
+    $(".button-collapse").sideNav();
     $('.dropdown-button').dropdown({
         inDuration: 300,
         outDuration: 225,
