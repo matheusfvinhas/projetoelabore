@@ -56,7 +56,7 @@ class EventsController < ApplicationController
         end
 
         def event_params
-            params.require(:event).permit(:title, :description, :local, :date, :time, {images: []}).merge(user_id: current_user.id)
+            params.require(:event).permit(:title, :description, :local, :date, :time, { images: [] }).merge(user_id: current_user.id)
         end
 
         def format_date_time
