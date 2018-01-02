@@ -23,7 +23,6 @@ RSpec.describe User, type: :model do
 end
 
 RSpec.describe User, type: :model do
-
     context 'validations' do
         it "is valid" do
             @user = User.create(email: 'matheusfvinhas@gmail.com', password: 'rap007',
@@ -84,6 +83,5 @@ RSpec.describe User, type: :model do
             tipo: :aluno, nome: "Matheus", responsavel: "Matheus", minicv: (0..5001).map { ('a'..'z').to_a[rand(26)] }.join)
             expect(@user).to be_invalid
         end
-
     end
 end

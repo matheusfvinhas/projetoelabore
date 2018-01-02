@@ -17,5 +17,4 @@ class User < ApplicationRecord
   validates :telephone, length: { maximum: 15 }
   validates :mini_cv, length: { maximum: 5000 }
   validates :kind, presence: true
-
 end
