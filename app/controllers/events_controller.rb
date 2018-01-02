@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
-    before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, except: [:index]
+    before_action :set_event, only: %i[show edit update destroy]
 
     def new
       @event = Event.new
@@ -14,7 +16,6 @@ class EventsController < ApplicationController
 
     def create                   
       @event = Event.new(event_params)           
-
 
         if @event.save
           flash[:notice] = "Evento salvo com sucesso."
@@ -48,19 +49,19 @@ class EventsController < ApplicationController
         redirect_to events_path
     end
 
+
   private
-        def set_event           
-          @event = Event.find(params[:id])
-        end
 
-        def event_params
-          params.require(:event).permit(:title, :description, :local, :date, :time, { images: [] }).merge(user_id: current_user.id)
-        end
+      def set_event           
+        @event = Event.find(params[:id])
+      end
 
-        def format_date_time
-          @event.date = I18n.l(@event.date)
-            @event.time = @event.time.to_s(:event_time)
-        end
+      def event_params
+        params.require(:event).permit(:title, :description, :local, :date, :time, { images: [] }).merge(user_id: current_user.id)
+      end
 
+      def format_date_time
+        @event.date = I18n.l(@event.date)
+        @event.time = @event.time.to_s(:event_time)
+      end
 end
-

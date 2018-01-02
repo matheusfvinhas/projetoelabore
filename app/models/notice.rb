@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Notice < ApplicationRecord
   mount_uploader :document, DocumentUploader
     
