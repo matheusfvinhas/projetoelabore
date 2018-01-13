@@ -3,6 +3,7 @@
 class NoticesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
     before_action :set_notice, only: %i[show edit update destroy]
+    before_action :config_link, only: %i[create update]
 
     def new
       @notice = Notice.new
@@ -15,7 +16,7 @@ class NoticesController < ApplicationController
     def show; end
 
     def create
-      @notice = Notice.new(notice_params)        
+      @notice = Notice.new(notice_params)
 
       if @notice.save
         flash[:notice] = 'Edital salvo com sucesso.'
@@ -54,6 +55,12 @@ class NoticesController < ApplicationController
     end
 
     def notice_params
-      params.require(:notice).permit(:title, :description, :document).merge(user_id: current_user.id)
+      params.require(:notice).permit(:title, :description, :document, :link).merge(user_id: current_user.id)
+    end
+
+    def config_link      
+      if !params[:notice][:link].start_with?('http') && !params[:notice][:link].blank?
+        params[:notice][:link] = "http://#{params[:notice][:link]}"
+      end
     end
 end

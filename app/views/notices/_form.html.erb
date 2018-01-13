@@ -17,6 +17,11 @@
       <%= f.text_area :description, class: "materialize-textarea", required: :true,  data: {length: 255} %>
   </div>  
 
+  <div class="input-field">
+      <%= f.label :link, "Link Externo" %>
+      <%= f.text_area :link, class: "materialize-textarea" %>
+  </div> 
+
   <div class="file-field input-field">
       <div class="btn yellow darken-3">
           <%= material_icon.cloud_upload %>
