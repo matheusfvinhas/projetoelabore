@@ -2,8 +2,7 @@
     <div class="card light-blue accent-4">
         <div class="card-content white-text">
             <span class="card-title" style="font-size: 25px;"><%= notice.title %></span>
-            <p style="font-size: 18px;"><%= notice.description %></p>  
-            <p style="font-size: 18px;"><%= notice.link %></p>                     
+            <p style="font-size: 18px;"><%= notice.description %></p>                              
         </div>
         <div align="right" class="card-action">            
             <%= link_to("Baixar Edital", notice.document.url, target: '_blank') if notice.document? %>
