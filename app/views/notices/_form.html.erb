@@ -15,7 +15,7 @@
   <div class="input-field">
       <%= f.label :description, "Descrição" %>
       <%= f.text_area :description, class: "materialize-textarea", required: :true,  data: {length: 255} %>
-  </div>
+  </div>  
 
   <div class="file-field input-field">
       <div class="btn yellow darken-3">
@@ -23,7 +23,7 @@
           <%= f.file_field :document %>
       </div>
       <div class="file-path-wrapper">
-          <%= text_field_tag nil, (@notice.document.file.filename if @notice.document?), {id: nil, class: 'file-path validate', placeholder: 'Escolha seu arquivo', required: true} %>
+          <%= text_field_tag nil, (@notice.document.file.filename if @notice.document?), {id: nil, class: 'file-path validate', placeholder: 'Escolha seu arquivo'} %>
       </div>
   </div>
 
