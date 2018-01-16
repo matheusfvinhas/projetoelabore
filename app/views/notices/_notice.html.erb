@@ -2,15 +2,15 @@
     <div class="card light-blue accent-4">
         <div class="card-content white-text">
             <span class="card-title" style="font-size: 25px;"><%= notice.title %></span>
-            <p style="font-size: 18px;"><%= notice.description %></p>                              
+            <p style="font-size: 18px;"><%= notice.description %></p>
         </div>
-        <div align="right" class="card-action">            
+        <div align="right" class="card-action">
+            <%= link_to("Acesse o Site", notice.link, target: '_blank') unless notice.link.blank? %>
             <%= link_to("Baixar Edital", notice.document.url, target: '_blank') if notice.document? %>
-            <%= link_to("Acesse o Site", notice.link, target: '_blank') unless notice.link.blank? %>            
             <% if current_user and current_user.admin? %>
                 <%= link_to "Editar", edit_notice_path(notice) %>
-                <%= link_to "Deletar", notice_path(notice),  data: {:confirm => 'Tem certeza que deseja deletar esse edital?'}, :method => :delete%> 
-            <% end %>           
+                <%= link_to "Deletar", notice_path(notice),  data: {:confirm => 'Tem certeza que deseja deletar esse edital?'}, :method => :delete%>
+            <% end %>
         </div>
     </div>
 </div>
