@@ -54,7 +54,7 @@
     <% if current_user.teacher? %>
       <div class="input-field">
         <%= f.label :mini_cv, "Mini Curriculum" %>              
-        <textarea id="user_mini_cv" name ="user[mini_cv]" class="materialize-textarea" data-length="5000" required><%= resource.minicv %></textarea>               
+        <textarea id="user_mini_cv" name ="user[mini_cv]" class="materialize-textarea" data-length="5000" required><%= resource.mini_cv %></textarea>               
       </div>    
     <% end %>
 

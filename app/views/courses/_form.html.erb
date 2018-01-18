@@ -1,0 +1,46 @@
+<%= form_for @course do |f| %>
+  <% if @course.errors.any? %>
+    <% @course.errors.full_messages.each do |message| %>  
+      <script type="text/javascript">
+        Materialize.toast('<%= message %>', 4000, 'red')
+      </script>
+    <% end %>
+  <% end %>
+
+  <div class="input-field">
+    <%= f.label :title, "Título" %>
+    <%= f.text_field :title, class: "validate", required: :true, maxlength: 100 %>
+  </div>
+
+  <div class="input-field">
+      <%= f.label :description, "Descrição" %>
+      <%= f.text_area :description, class: "materialize-textarea", required: :true,  data: {length: 255} %>
+  </div>  
+
+  <div class="input-field">        
+    <%= f.select :user_id, @teachers.collect {|p| [p.name, p.id]}, { prompt: 'Selecione o professor' }, required: :true %> 
+  </div>    
+
+  <div class="file-field input-field">
+    <div class="btn yellow darken-3">
+      <%= material_icon.cloud_upload %>
+      <%= f.file_field :document %>
+    </div>
+    <div class="file-path-wrapper">
+      <%= text_field_tag nil, (@course.document.file.filename if @course.document?), {id: nil, class: 'file-path validate', placeholder: 'Escolha seu arquivo'} %>
+    </div>
+  </div>
+
+  <div class="row center">
+    <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>
+
+    <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>
+  </div>
+
+<% end %>
+
+
+
+
+
+

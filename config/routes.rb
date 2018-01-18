@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   root to: 'index#index'
   resources :events
   resources :notices
+  resources :courses
 end

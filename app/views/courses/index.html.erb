@@ -1,0 +1,20 @@
+<div>
+
+    <p style="font-size: 35px;">Cursos</p>   
+    <div class="row">
+        <% if current_user and current_user.admin? %>
+            <%= link_to new_course_path, class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
+                <%= material_icon.add %>
+            <% end %> 
+        <% end %> 
+    </div> 
+
+    <div class="row">
+        <%= render @courses %>     
+    </div>   
+
+    <div class="row center">
+        <%= paginate @courses, window: 2 %>
+    </div>
+    
+</div>

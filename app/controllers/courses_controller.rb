@@ -1,0 +1,52 @@
+# frozen_string_literal: true
+
+class CoursesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_teachers, only: %i[new create]
+
+  def new
+    @course = Course.new    
+  end
+
+  def index
+    if current_user.admin? or current_user.student?
+      @courses = Course.all.order(title: :asc).page(params[:page]).per(6)
+    elsif current_user.teacher?
+      @courses = Course.all.where(user_id: current_user.id).page(params[:page]).per(6)
+    end
+  end
+
+  def show; end
+
+  def create
+    @course = Course.new(course_params)
+    
+    if @course.save
+      flash[:notice] = 'Curso salvo com sucesso.'
+      redirect_to courses_path
+    else
+      flash[:alert] = 'Erro ao salvar curso.'      
+      render :new
+    end
+  end
+
+  def edit; end
+
+  def update; end
+
+  def destroy; end
+
+  private
+    def course_params
+      params.require(:course).permit(:title, :description, :document, :user_id)
+    end
+
+    def set_course
+      @course = Course.find(params[:id])
+    end
+
+    def set_teachers
+      @teachers = User.all.where(kind: :teacher)
+    end
+
+end
