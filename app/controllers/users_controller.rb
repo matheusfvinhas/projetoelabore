@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: %i[show destroy]
 
   def new
     @user = User.new
@@ -15,11 +16,14 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = 'Usuário salvo com sucesso.'
       UserMailer.welcome(@user, @user.password).deliver_later
-      redirect_to show_all_users_path
+      redirect_to users_path
     else
       flash[:alert] = 'Erro ao salvar usuário.'
       render :new
     end
+  end
+
+  def show
   end
 
   def index
@@ -27,8 +31,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-
     if @user.id == current_user.id
       flash[:alert] = 'Você não pode excluir seu próprio usuário.'
     else
@@ -38,12 +40,16 @@ class UsersController < ApplicationController
         flash[:alert] = 'Erro ao tentar remover usuário.'
       end
     end
-    redirect_to show_all_users_path
+    redirect_to users_path
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:username, :name, :responsible, :telephone, :email, :kind)
-  end
+    def user_params
+      params.require(:user).permit(:username, :name, :responsible, :telephone, :email, :kind)
+    end
+
+    def set_user
+      @user = User.find(params[:id])
+    end
 end

@@ -16,15 +16,12 @@
   <ul id="cadastrar-dropdown" class="dropdown-content">
     <li>
       <% if current_user.admin? %>
-        <%= link_to "Usuários", show_all_users_path %>
+        <%= link_to "Usuários", users_path %>
         <%= link_to "Pedidos de Parceria", partners_path %>
       <% end %>
       <% if current_user.teacher? || current_user.admin? %>
         <%= link_to "Cursos", courses_path %>
-      <% end %>
-      <% if current_user.teacher? %>
-        <%= link_to "Alunos" %>
-      <% end %>
+      <% end %>     
     </li>
   </ul>
 <% end %>
@@ -68,7 +65,7 @@
       <% end %>
       <% if !current_user.student? %>
         <% if current_user.admin? %>
-          <li><%= link_to "Usuários", show_all_users_path %></li>
+          <li><%= link_to "Usuários", users_path %></li>
           <li><%= link_to "Pedidos de Parceria", partners_path %></li>
         <% end %>
         <% if current_user.teacher? || current_user.admin? %>

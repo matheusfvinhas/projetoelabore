@@ -2,7 +2,8 @@
 
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_teachers, only: %i[new create]
+  before_action :set_teachers, only: %i[new create edit]
+  before_action :set_course, only: %i[edit update destroy]
 
   def new
     @course = Course.new    
@@ -32,9 +33,24 @@ class CoursesController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update;
+    if @course.update(course_params)            
+      flash[:notice] = 'Curso atualizado com sucesso.'
+        redirect_to courses_path
+    else
+      flash[:alert] = 'Erro ao atualizar curso.'
+        render :edit
+    end
+  end
 
-  def destroy; end
+  def destroy
+    if @course.destroy
+      flash[:notice] = 'Curso deletado com sucesso.'
+    else
+      flash[:alert] = 'Erro ao deletar curso.'
+    end
+    redirect_to courses_path
+  end
 
   private
     def course_params
