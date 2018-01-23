@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117234410) do
+ActiveRecord::Schema.define(version: 20180123000151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "text", limit: 255
+    t.bigint "grade_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["grade_id"], name: "index_comments_on_grade_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -48,6 +58,17 @@ ActiveRecord::Schema.define(version: 20180117234410) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.string "title", limit: 100
+    t.string "description", limit: 255
+    t.string "video_link", limit: 100
+    t.string "document"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_grades_on_course_id"
   end
 
   create_table "notices", force: :cascade do |t|
@@ -90,6 +111,9 @@ ActiveRecord::Schema.define(version: 20180117234410) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "grades"
+  add_foreign_key "comments", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "grades", "courses"
   add_foreign_key "notices", "users"
 end

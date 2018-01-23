@@ -33,7 +33,7 @@ class CoursesController < ApplicationController
 
   def edit; end
 
-  def update;
+  def update
     if @course.update(course_params)            
       flash[:notice] = 'Curso atualizado com sucesso.'
         redirect_to courses_path

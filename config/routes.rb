@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resources :partners, only: %i[new index show]
   resources :events
   resources :notices
-  resources :courses
+  resources :courses, shallow: true do
+    resources :grades, shallor: true do
+      resources :comments
+    end
+  end
   resources :users, only: %i[new show index destroy]
   post 'create_user' => 'users#create', as: :create_user  
 end
