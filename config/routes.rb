@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :events
   resources :notices
   resources :courses, shallow: true do
-    resources :grades, shallor: true do
+    resources :grades, shallow: true do
       resources :comments
     end
   end

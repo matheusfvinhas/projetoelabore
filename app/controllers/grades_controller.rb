@@ -3,7 +3,8 @@
 class GradesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_grade, only: %i[show edit update destroy]
-  before_action :set_course, only: %i[new create]
+  before_action :set_course, only: %i[new create index]
+  before_action :find_course, only: %i[edit update destroy]
 
   def new
     @grade = @course.grades.build
@@ -11,8 +12,12 @@ class GradesController < ApplicationController
 
   def show; end
 
-  def create
-    @grade = @course.grades.create(grades_params)
+  def index
+    @grades = @course.grades.order(created_at: :desc)
+  end
+
+  def create       
+    @grade = @course.grades.create(grade_params)
 
     if @grade.save
       flash[:notice] = 'Aula salva com sucesso.'
@@ -28,7 +33,7 @@ class GradesController < ApplicationController
   def update
     if @grade.update(grade_params)
       flash[:notice] = 'Curso atualizado com sucesso.'
-        redirect_to grade_path(@grade)
+        redirect_to course_grades_path(@course)
     else
       flash[:alert] = 'Erro ao atualizar curso.'
         render :edit
@@ -36,8 +41,6 @@ class GradesController < ApplicationController
   end
 
   def destroy
-    @course = @grade.course
-
     if @grade.destroy
       flash[:notice] = 'Curso deletado com sucesso.'
     else
@@ -48,7 +51,7 @@ class GradesController < ApplicationController
 
   private
     def grade_params
-      params.require(:grade).permit(:title, :description, :video_lonk, :document)
+      params.require(:grade).permit(:title, :description, :video_link, :document)
     end
 
     def set_grade
@@ -59,4 +62,7 @@ class GradesController < ApplicationController
       @course = Course.find(params[:course_id])
     end
 
+    def find_course
+      @course = @grade.course
+    end
 end
