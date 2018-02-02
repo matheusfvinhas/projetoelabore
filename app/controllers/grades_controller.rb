@@ -5,6 +5,7 @@ class GradesController < ApplicationController
   before_action :set_grade, only: %i[show edit update destroy]
   before_action :set_course, only: %i[new create index]
   before_action :find_course, only: %i[edit update destroy]
+  before_action :config_link, only: %i[create update]
 
   def new
     @grade = @course.grades.build
@@ -13,7 +14,7 @@ class GradesController < ApplicationController
   def show; end
 
   def index
-    @grades = @course.grades.order(created_at: :desc)
+    @grades = @course.grades.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def create       
@@ -64,5 +65,11 @@ class GradesController < ApplicationController
 
     def find_course
       @course = @grade.course
+    end
+
+    def config_link      
+      if !params[:grade][:video_link].start_with?('http') && !params[:grade][:video_link].blank?
+        params[:grade][:video_link] = "http://#{params[:grade][:video_link]}"
+      end
     end
 end

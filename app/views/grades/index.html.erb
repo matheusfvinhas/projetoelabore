@@ -1,8 +1,8 @@
 <div>
   <p style="font-size: 35px;">Aulas</p>
   <div class="row">
-    <% if current_user and current_user.admin? %>
-      <%= link_to new_course_path, class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
+    <% if current_user and (current_user.admin? or current_user.teacher?) %>
+      <%= link_to new_course_grade_path(@course), class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
         <%= material_icon.add %>
       <% end %>
     <% end %>
@@ -11,4 +11,13 @@
   <div class="row">
     <%= render @grades %>
   </div>  
+
+  <div class="row center">
+    <%= paginate @grades, window: 2 %>
+  </div>  
+
+  <div class="row center">
+    <%= link_to "Voltar", courses_path, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
+  </div>  
+  
 </div>
