@@ -9,9 +9,7 @@ class GradesController < ApplicationController
 
   def new
     @grade = @course.grades.build
-  end
-
-  def show; end
+  end 
 
   def index
     @grades = @course.grades.order(created_at: :desc).page(params[:page]).per(10)

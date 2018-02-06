@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :notices
+  has_many :enrollments
+  has_many :courses, through: :enrollments
 
   devise :database_authenticatable, :recoverable, :registerable
   enum kind: %i[admin teacher student]

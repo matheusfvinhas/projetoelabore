@@ -10,14 +10,16 @@ class CoursesController < ApplicationController
   end
 
   def index
-    if current_user.admin? or current_user.student?
+    if current_user.admin?
       @courses = Course.all.order(title: :asc).page(params[:page]).per(6)
     elsif current_user.teacher?
       @courses = Course.all.where(user_id: current_user.id).page(params[:page]).per(6)
+    elsif current_user.student?
+      @courses = Course.all.where.not(id: current_user.enrollments.map(&:course_id)).page(params[:page]).per(6)
     end
   end
 
-  def show; end
+  def show; end  
 
   def create
     @course = Course.new(course_params)

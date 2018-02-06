@@ -41,6 +41,7 @@
         <ul id="nav-right" class="right hide-on-med-and-down">
           <% if user_signed_in? %>
             <% if current_user.student? %>
+              <li><%= link_to "Meus Cursos", enrollments_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
               <li><%= link_to "Cursos", courses_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
             <% end %>
             <% if !current_user.student? %>

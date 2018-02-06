@@ -1,0 +1,17 @@
+<div class="col s12 m12">
+  <div class="card light-blue accent-4">
+    <div class="card-content white-text">
+      <span class="card-title" style="font-size: 25px;"><%= enrollment.course.title %></span>
+      <p style="font-size: 18px;"><%= enrollment.course.description %></p>
+      <p style="font-size: 18px;">Professor: <%= enrollment.course.user.name %> </p>
+    </div>
+    <div align="right" class="card-action">        
+      <%= link_to("Professor", user_path(enrollment.course.user)) %> 
+      <%= link_to "Continuar Curso" %>     
+      <%= link_to("Baixar Ementa", enrollment.course.document.url, target: '_blank') if enrollment.course.document? %>    
+      <%= link_to "Desmatricular", enrollment_path(enrollment),  data: {:confirm => 'Tem certeza que deseja se desmatricular deste curso?'}, :method => :delete %>                              
+    </div>
+  </div>
+</div>
+
+

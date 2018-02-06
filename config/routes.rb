@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'index#index'
   
-  post 'enviar_pedido_parceria' => 'partners#send_partner_apply', as: :send_partner_apply
-  get 'confirmar_parceria/:id' => 'partners#confirm_partner_apply', as: :confirm_partner_apply  
+  post 'send_partner_apply' => 'partners#send_partner_apply', as: :send_partner_apply
+  get 'confirm_partner_apply/:id' => 'partners#confirm_partner_apply', as: :confirm_partner_apply  
 
   resources :partners, only: %i[new index show]
   resources :events
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
+  resources :enrollments, only: %i[index create destroy]
+
   resources :users, only: %i[new show index destroy]
   post 'create_user' => 'users#create', as: :create_user  
 end
