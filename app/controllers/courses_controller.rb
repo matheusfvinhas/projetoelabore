@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: %i[edit update destroy]
 
   def new
-    @course = Course.new    
+    @course = Course.new
   end
 
   def index
@@ -19,16 +19,16 @@ class CoursesController < ApplicationController
     end
   end
 
-  def show; end  
+  def show; end
 
   def create
     @course = Course.new(course_params)
-    
+
     if @course.save
       flash[:notice] = 'Curso salvo com sucesso.'
       redirect_to courses_path
     else
-      flash[:alert] = 'Erro ao salvar curso.'      
+      flash[:alert] = 'Erro ao salvar curso.'
       render :new
     end
   end
@@ -36,12 +36,12 @@ class CoursesController < ApplicationController
   def edit; end
 
   def update
-    if @course.update(course_params)            
+    if @course.update(course_params)
       flash[:notice] = 'Curso atualizado com sucesso.'
-        redirect_to courses_path
+      redirect_to courses_path
     else
       flash[:alert] = 'Erro ao atualizar curso.'
-        render :edit
+      render :edit
     end
   end
 
