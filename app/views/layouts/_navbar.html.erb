@@ -21,7 +21,7 @@
       <% end %>
       <% if current_user.teacher? || current_user.admin? %>
         <%= link_to "Cursos", courses_path %>
-      <% end %>     
+      <% end %>
     </li>
   </ul>
 <% end %>
@@ -62,7 +62,8 @@
     <li><%= link_to "Editais", notices_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
     <% if user_signed_in? %>
       <% if current_user.student? %>
-        <li><%= link_to "Cursos", "#", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
+        <li><%= link_to "Meus Cursos", enrollments_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
+        <li><%= link_to "Cursos", courses_path, class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"%></li>
       <% end %>
       <% if !current_user.student? %>
         <% if current_user.admin? %>
@@ -70,11 +71,8 @@
           <li><%= link_to "Pedidos de Parceria", partners_path %></li>
         <% end %>
         <% if current_user.teacher? || current_user.admin? %>
-          <li><%= link_to "Cursos" %></li>
+          <li><%= link_to "Cursos", courses_path %></li>
         <% end %>
-        <% if current_user.teacher? %>
-          <li><%= link_to "Alunos" %></li>
-        <% end %> 
       <% end %>
       <li><%= link_to "Alterar Cadastro", edit_user_registration_path  %></li>
       <li class="divider"></li>

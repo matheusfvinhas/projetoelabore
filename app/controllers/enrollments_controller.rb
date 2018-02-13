@@ -6,15 +6,17 @@ class EnrollmentsController < ApplicationController
   end
 
   def show
-    @grade = params[:grade_id].nil? ? @enrollment.course.grades.first : Grade.find(params[:grade_id])
+    @grade = params[:grade_id].nil? ? Grade.find(@enrollment.tracking.grade_id) : Grade.find(params[:grade_id])
     @grades = @enrollment.course.grades.order(:created_at)
+
+    @enrollment.tracking.update(grade_id: @grade.id)
   end
 
   def create
     @course = Course.find(params[:course_id])
     @course.enrollments.create(user: current_user)
 
-    if @course.save
+    if @course.save && create_tracking
       flash[:notice] = 'Matrícula Efetuada com sucesso.'
     else
       flash[:alert] = 'Erro ao efetuar matrícula.'
@@ -35,6 +37,13 @@ class EnrollmentsController < ApplicationController
   private
     def set_enrollment
       @enrollment = Enrollment.find(params[:id])
+    end
+
+    def create_tracking
+      @tracking = Tracking.new
+      @tracking.enrollment_id = Enrollment.all.where(course_id: @course.id, user_id: current_user.id).first.id
+      @tracking.grade_id = @course.grades.first.id
+      @tracking.save
     end
 
 end

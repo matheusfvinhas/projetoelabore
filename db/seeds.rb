@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(email: 'matheusfvinhas@gmail.com', password: '123456', kind: :admin, 
+User.create!(email: 'matheusfvinhas@gmail.com', password: '123456', kind: :admin,
              name: 'Matheus', responsible: 'Matheus', telephone: '(12) 98169-7471')
-User.create!(email: 'teacher@elabore.org', password: '123456', kind: :teacher, 
+User.create!(email: 'teacher@elabore.org', password: '123456', kind: :teacher,
              name: 'Glaucia', responsible: 'Matheus', telephone: '(12) 98169-7471')
-User.create!(email: 'student@elabore.org', password: '123456', kind: :student, 
+User.create!(email: 'student@elabore.org', password: '123456', kind: :student,
             name: 'Fabio', responsible: 'Matheus', telephone: '(12) 98169-7471')
+User.create!(email: 'ketrinha@elabore.org', password: '123456', kind: :teacher,
+             name: 'Ketrinha', responsible: 'Matheus', telephone: '(12) 98169-7471')
