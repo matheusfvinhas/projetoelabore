@@ -9,13 +9,13 @@ class GradesController < ApplicationController
 
   def new
     @grade = @course.grades.build
-  end 
-
-  def index
-    @grades = @course.grades.order(created_at: :desc).page(params[:page]).per(10)
   end
 
-  def create       
+  def index
+    @grades = @course.grades.order(created_at: :asc).page(params[:page]).per(10)
+  end
+
+  def create
     @grade = @course.grades.create(grade_params)
 
     if @grade.save
@@ -65,9 +65,10 @@ class GradesController < ApplicationController
       @course = @grade.course
     end
 
-    def config_link      
+    def config_link
       if !params[:grade][:video_link].start_with?('http') && !params[:grade][:video_link].blank?
         params[:grade][:video_link] = "http://#{params[:grade][:video_link]}"
       end
+      params[:grade][:video_link].sub! 'watch?v=', 'embed/'
     end
 end

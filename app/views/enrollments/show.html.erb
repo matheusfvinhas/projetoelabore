@@ -1,0 +1,25 @@
+<ul id="slide-out" class="side-nav">
+  <li><a class="subheader"><%=@enrollment.course.title%></a></li>
+  <li><div class="divider"></div></li>
+  <% @grades.each do |grade| %>
+    <li><%= link_to grade.title, enrollment_show_path(@enrollment, grade.id)%></a></li>
+  <% end %>
+</ul>
+
+<div>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+</div>
+
+<div class="center">
+  <p style="font-size: 35px;"><%=@grade.title%></p>
+</div>
+
+<div class="video-container">
+  <iframe width="560" height="315" src="<%=@grade.video_link%>" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div align="right" style="padding-bottom: 20px; padding-top: 20px;">
+  <%= link_to("Visualizar Arquivo", @grade.document.url, target: '_blank') if @grade.document? %>
+</div>
+
+
