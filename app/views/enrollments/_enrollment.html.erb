@@ -9,7 +9,7 @@
       <%= link_to("Professor", user_path(enrollment.course.user)) %>
       <%= link_to "Aulas", enrollment_path(enrollment) %>
       <%= link_to("Baixar Ementa", enrollment.course.document.url, target: '_blank') if enrollment.course.document? %>
-      <%= link_to "Desmatricular", enrollment_path(enrollment),  data: {:confirm => 'Tem certeza que deseja se desmatricular deste curso?'}, :method => :delete %>
+      <%= link_to("Desmatricular", enrollment_path(enrollment),  data: {:confirm => 'Tem certeza que deseja se desmatricular deste curso?'}, :method => :delete) if !enrollment.concluded_at %>
     </div>
   </div>
 </div>

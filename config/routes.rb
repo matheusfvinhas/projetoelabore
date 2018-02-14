@@ -12,9 +12,7 @@ Rails.application.routes.draw do
   resources :events
   resources :notices
   resources :courses, shallow: true do
-    resources :grades, shallow: true do
-      resources :comments
-    end
+    resources :grades
   end
   resources :enrollments, only: %i[index create destroy show]
   get 'enrollment/:id/grades/:grade_id' => 'enrollments#show', as: :enrollment_show
