@@ -18,6 +18,10 @@
   <iframe width="560" height="315" src="<%=@grade.video_link%>" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<div class="left" style="padding-bottom: 20px; padding-top: 20px;">
+  <%= link_to "Enviar Pergunta", ask_question_path(@enrollment, @grade) %>
+</div>
+
 <div class="right" style="padding-bottom: 20px; padding-top: 20px;">
   <%= link_to("Visualizar Arquivo", @grade.document.url, target: '_blank') if @grade.document? %>
 </div>

@@ -1,0 +1,38 @@
+<div class="container center">
+  <p style="font-size: 35px;">Enviar Pergunta</p>
+</div>
+
+<div class="container">
+  <%= form_tag send_question_path do %>
+
+    <div class="input-field">
+
+      <div class="input-field">
+        <%= text_field_tag(:grade_title, @grade.title, class: "validate", disabled: :true, maxlength: 50) %>
+      </div>
+
+      <div class="input-field">
+        <%= text_field_tag(:email_teacher, @enrollment.course.user.email, class: "validate", disabled: :true, maxlength: 50) %>
+      </div>
+
+      <div class="input-field">
+        <%= text_field_tag(:email_student, @enrollment.user.email, class: "validate", disabled: :true, maxlength: 50) %>
+      </div>
+
+      <div class="input-field">
+        <%= text_area_tag(:question, nil, placeholder: "Escreva sua pergunta aqui...", class: "materialize-textarea", required: :true,  data: {length: 5000}) %>
+      </div>
+
+      <%= hidden_field_tag :enrollment_id, @enrollment.id %>
+
+      <div class="row center">
+        <%= submit_tag("Enviar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}") %>
+
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>
+      </div>
+
+  <% end %>
+</div>
+
+
+

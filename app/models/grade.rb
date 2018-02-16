@@ -4,7 +4,6 @@ class Grade < ApplicationRecord
   mount_uploader :document, DocumentUploader
 
   belongs_to :course
-  has_many :comments, dependent: :destroy
   has_many :trackings, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 100 }

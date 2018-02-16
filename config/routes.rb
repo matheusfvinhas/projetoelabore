@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :enrollments, only: %i[index create destroy show]
   get 'enrollment/:id/grades/:grade_id' => 'enrollments#show', as: :enrollment_show
 
+  get 'ask_question/:enrollment_id/grade/:grade_id' => 'questions#ask_question', as: :ask_question
+  post 'send_question' => 'questions#send_question', as: :send_question
+
   resources :users, only: %i[new show index destroy]
   post 'create_user' => 'users#create', as: :create_user
 end
