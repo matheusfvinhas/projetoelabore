@@ -19,11 +19,11 @@
 </div>
 
 <div class="left" style="padding-bottom: 20px; padding-top: 20px;">
-  <%= link_to "Enviar Pergunta", ask_question_path(@enrollment, @grade) %>
+  <%= link_to "Enviar Pergunta", ask_question_path(@enrollment, @grade), class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>
 </div>
 
 <div class="right" style="padding-bottom: 20px; padding-top: 20px;">
-  <%= link_to("Visualizar Arquivo", @grade.document.url, target: '_blank') if @grade.document? %>
+  <%= link_to("Visualizar Arquivo", @grade.document.url, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}", target: '_blank') if @grade.document? %>
 </div>
 
 

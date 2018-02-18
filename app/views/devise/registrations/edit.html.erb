@@ -4,69 +4,69 @@
 
 <div class="container">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    
+
     <% if resource.errors.any? %>
-      <% resource.errors.full_messages.each do |message| %>  
+      <% resource.errors.full_messages.each do |message| %>
         <script type="text/javascript">
           Materialize.toast('<%= message %>', 4000, 'red')
         </script>
       <% end %>
     <% end %>
-    
+
     <div class="input-field">
       <%= f.label :email %>
       <% if current_user.admin? %>
         <%= f.email_field :email, autofocus: true, class: "validate", required: :true %>
       <% else %>
-        <%= f.email_field :email, autofocus: true, disabled: :true, class: "validate", required: :true %>
-      <% end %>    
-    </div> 
-    
+        <%= f.email_field :email, autofocus: true, readonly: :true, class: "validate", required: :true %>
+      <% end %>
+    </div>
+
     <div class="input-field">
       <%= f.label :name, "Nome" %>
-      <%= f.text_field :name, maxlength: 50, class: "validate", required: :true %> 
-    </div> 
+      <%= f.text_field :name, maxlength: 50, class: "validate", required: :true %>
+    </div>
 
     <div class="row">
       <div class="input-field col s6">
         <%= f.label :responsible, "Responsável" %>
-        <%= f.text_field :responsible, maxlength: 50, class: "validate", required: :true %> 
-      </div>    
-    
+        <%= f.text_field :responsible, maxlength: 50, class: "validate", required: :true %>
+      </div>
+
       <div class="input-field col s6">
         <%= f.label :telephone, 'Telefone' %>
         <%= f.telephone_field :telephone, maxlength: 15, class: "validate", required: :true %>
-      </div> 
+      </div>
     </div>
 
     <div class="row">
       <div class="input-field col s6">
         <%= f.label :password, "Senha" %>
-        <%= f.password_field :password, autocomplete: "off", class: "validate" %>    
-      </div>       
+        <%= f.password_field :password, autocomplete: "off", class: "validate" %>
+      </div>
 
       <div class="input-field col s6">
         <%= f.label :password_confirmation, "Confirmação de Senha" %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "validate" %>
-      </div>  
+      </div>
     </div>
 
     <% if current_user.teacher? %>
       <div class="input-field">
-        <%= f.label :mini_cv, "Mini Curriculum" %>              
-        <textarea id="user_mini_cv" name ="user[mini_cv]" class="materialize-textarea" data-length="5000" required><%= resource.mini_cv %></textarea>               
-      </div>    
+        <%= f.label :mini_cv, "Mini Curriculum" %>
+        <textarea id="user_mini_cv" name ="user[mini_cv]" class="materialize-textarea" data-length="5000" required><%= resource.mini_cv %></textarea>
+      </div>
     <% end %>
 
     <div class="input-field">
-      <%= f.label :current_password, "Senha Atual" %>       
+      <%= f.label :current_password, "Senha Atual" %>
       <%= f.password_field :current_password, autocomplete: "off", class: "validate", required: :true %>
-    </div>           
+    </div>
 
     <div class="row center">
-      <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>        
+      <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>
 
-      <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
+      <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>
     </div>
   <% end %>
 </div>

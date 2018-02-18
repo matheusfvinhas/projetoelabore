@@ -8,15 +8,15 @@
     <div class="input-field">
 
       <div class="input-field">
-        <%= text_field_tag(:grade_title, @grade.title, class: "validate", disabled: :true, maxlength: 50) %>
+        <%= text_field_tag(:grade_title, @grade.title, class: "validate", readonly: :true, maxlength: 50) %>
       </div>
 
       <div class="input-field">
-        <%= text_field_tag(:email_teacher, @enrollment.course.user.email, class: "validate", disabled: :true, maxlength: 50) %>
+        <%= text_field_tag(:email_teacher, @enrollment.course.user.email, class: "validate", readonly: :true, maxlength: 50) %>
       </div>
 
       <div class="input-field">
-        <%= text_field_tag(:email_student, @enrollment.user.email, class: "validate", disabled: :true, maxlength: 50) %>
+        <%= text_field_tag(:email_student, @enrollment.user.email, class: "validate", readonly: :true, maxlength: 50) %>
       </div>
 
       <div class="input-field">
