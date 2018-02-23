@@ -1,0 +1,9 @@
+attributes:
+  - primary_key
+  - content
+  - foreign_key
+  - inheritance
+  - timestamps
+filename: elabore_model
+filetype: pdf
+title: false
