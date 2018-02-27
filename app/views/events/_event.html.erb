@@ -5,14 +5,14 @@
             <p style="font-size: 18px;"><%= event.description %></p>
             <p style="font-size: 18px;">Data: <%= l(event.date) %></p>
             <p style="font-size: 18px;">Hora: <%= event.time.to_s(:event_time) %></p>
-            <p style="font-size: 18px;">Local: <%= event.local %></p>                                                                           
+            <p style="font-size: 18px;">Local: <%= event.local %></p>
         </div>
         <div align="right" class="card-action">
+            <%= link_to "Galeria de Fotos", event_path(event) if event.images? %>
             <% if current_user and current_user.admin? %>
-                <%= link_to "Galeria de Fotos", event_path(event) if event.images? %>
                 <%= link_to "Editar", edit_event_path(event)%>
                 <%= link_to "Deletar", event_path(event), data: {:confirm => 'Tem certeza que deseja deletar esse evento?'}, :method => :delete%>
-            <% end %>           
+            <% end %>
         </div>
     </div>
 </div>

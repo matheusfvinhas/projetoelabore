@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'ask_question/:enrollment_id/grade/:grade_id' => 'questions#ask_question', as: :ask_question
   post 'send_question' => 'questions#send_question', as: :send_question
 
+  delete 'destroy_image/:id' => 'events#destroy_image', as: :destroy_image
+
   resources :users, only: %i[new show index destroy]
   post 'create_user' => 'users#create', as: :create_user
 end
