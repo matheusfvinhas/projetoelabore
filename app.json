@@ -1,0 +1,14 @@
+
+{
+  "name": "elabore",
+  "description": "Plataforma do Projeto Elabore",
+  "keywords": [
+    "dokku",
+    "rails"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate"
+    }
+  }
+}
