@@ -7,7 +7,12 @@ class QuestionsController < ApplicationController
   end
 
   def send_question
-    QuestionsMailer.send_question(params[:grade_title], params[:email_teacher], params[:email_student], @enrollment.user.name, params[:question], @enrollment.course.title).deliver_later
+    QuestionsMailer.send_question(params[:grade_title], 
+                                  params[:email_teacher], 
+                                  params[:email_student],
+                                  @enrollment.user.name,
+                                  params[:question], 
+                                  @enrollment.course.title).deliver_later
     flash[:notice] = 'Pergunta enviada com sucesso.'
     redirect_to enrollment_path(@enrollment)
   end

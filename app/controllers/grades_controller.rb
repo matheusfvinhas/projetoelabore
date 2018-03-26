@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class GradesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_grade, only: %i[show edit update destroy]
@@ -67,7 +65,7 @@ class GradesController < ApplicationController
 
     def config_link
       if !params[:grade][:video_link].start_with?('http') && !params[:grade][:video_link].blank?
-        params[:grade][:video_link] = "http://#{params[:grade][:video_link]}"
+        params[:grade][:video_link] = 'http://#{params[:grade][:video_link]}'
       end
       params[:grade][:video_link].sub! 'watch?v=', 'embed/'
     end

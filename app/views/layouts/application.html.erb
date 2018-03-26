@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% if Rails.env.production? %>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383143-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116383143-1');
+      </script>
+    <% end %>
     <title>Projeto Elabore</title>
     <%= csrf_meta_tags %>
 
@@ -9,8 +20,8 @@
   </head>
 
   <body>
-   
-    <%= render "layouts/navbar" %>     
+
+    <%= render "layouts/navbar" %>
 
     <main>
       <% if notice %>
@@ -22,7 +33,7 @@
         <script type="text/javascript">
           Materialize.toast('<%= alert %>', 2500, 'red')
         </script>
-      <% end %>      
+      <% end %>
 
       <div class="container">
         <%= yield %>
@@ -32,5 +43,5 @@
     <%= render "layouts/footer"%>
 
   </body>
-  
+
 </html>
