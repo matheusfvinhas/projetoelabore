@@ -6,7 +6,7 @@
     <div class="row">
         <% @event.images.each_with_index do |image, index| %>
           <%= link_to image.url, target: '_blank' do %>
-              <%= image_tag image.thumb %>
+              <%= image_tag image.thumb.url %>
           <% end %>
           <%= link_to destroy_image_path(@event, index), method: :delete, data: { confirm: "Tem certeza que deseja deletar essa imagem?" } do %>
             <%= material_icon.delete %>
