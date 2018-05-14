@@ -2,38 +2,38 @@
   <p style="font-size: 35px;">Usuários</p>
 </div>
 
-<div class="right">       
+<div class="right">
 
     <%= link_to new_user_path, class: "btn-floating btn-large waves-effect waves-light #{PRIMARY_BUTTONS_COLOR}" do %>
         <%= material_icon.add %>
-    <% end %>       
-  
+    <% end %>
+
 </div>
 
-<div class="center">  
+<div class="center">
 
     <table class="highlight bordered responsive-table">
-        
+
         <head>
             <tr>
                 <th>Nome</th>
-                <th>Responsável</th>
+                <th>Instituição</th>
                 <th>Email</th>
                 <th>Telefone</th>
                 <th>Tipo</th>
                 <th></th>
             </tr>
         </head>
-         
-        <%= render @users %>        
 
-    </table>      
+        <%= render @users %>
 
-         
+    </table>
+
+
      <div class="row center">
         <%= paginate @users, window: 2 %>
-    </div>  
-  
+    </div>
+
 </div>
 
 

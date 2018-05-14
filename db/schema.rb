@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213121014) do
+ActiveRecord::Schema.define(version: 2018_05_14_223757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,13 @@ ActiveRecord::Schema.define(version: 20180213121014) do
     t.index ["course_id"], name: "index_grades_on_course_id"
   end
 
+  create_table "institutions", force: :cascade do |t|
+    t.string "name", limit: 50
+    t.string "manager", limit: 50
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "notices", force: :cascade do |t|
     t.string "title", limit: 100
     t.text "description"
@@ -114,7 +121,9 @@ ActiveRecord::Schema.define(version: 20180213121014) do
     t.datetime "reset_password_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "institution_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["institution_id"], name: "index_users_on_institution_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -123,4 +132,5 @@ ActiveRecord::Schema.define(version: 20180213121014) do
   add_foreign_key "notices", "users"
   add_foreign_key "trackings", "enrollments"
   add_foreign_key "trackings", "grades"
+  add_foreign_key "users", "institutions"
 end

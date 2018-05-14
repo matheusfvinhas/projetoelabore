@@ -3,6 +3,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[show destroy]
+  before_action :set_intitutions, only: %i[new create]
 
   def new
     @user = User.new
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     @user.password = Devise.friendly_token.first(8)
-
+    
     if @user.save
       flash[:notice] = 'Usuário salvo com sucesso.'
       UserMailer.welcome(@user, @user.password).deliver_later
@@ -46,10 +47,14 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:username, :name, :responsible, :telephone, :email, :kind)
+      params.require(:user).permit(:username, :name, :responsible, :telephone, :email, :kind, :institution_id)
     end
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def set_intitutions
+      @institutions = Institution.all
     end
 end

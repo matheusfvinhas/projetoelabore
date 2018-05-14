@@ -3,10 +3,10 @@
 </div>
 
 <div class="container">
-  <%= form_for @user, url: create_user_path do |f| %>  
+  <%= form_for @user, url: create_user_path do |f| %>
 
     <% if @user.errors.any? %>
-      <% @user.errors.full_messages.each do |message| %>  
+      <% @user.errors.full_messages.each do |message| %>
         <script type="text/javascript">
           Materialize.toast('<%= message %>', 4000, 'red')
         </script>
@@ -19,34 +19,33 @@
           <%= f.email_field :email, autofocus: true, class: "validate", required: :true %>
         <% else %>
           <%= f.email_field :email, autofocus: true, disabled: :true, class: "validate", required: :true %>
-        <% end %>    
-      </div> 
-      
+        <% end %>
+      </div>
+
       <div class="input-field">
         <%= f.label :name, 'Nome' %>
-        <%= f.text_field :name, class: "validate", required: :true, maxlength: 50 %> 
-      </div> 
+        <%= f.text_field :name, class: "validate", required: :true, maxlength: 50 %>
+      </div>
 
       <div class="row">
         <div class="input-field col s6">
-          <%= f.label :responsible, "Responsável" %>
-          <%= f.text_field :responsible, class: "validate", required: :true, maxlength: 50 %> 
-        </div>    
-      
+          <%= f.collection_select :institution_id, @institutions, :id, :name, include_blank: 'Escolha a Instituição', required: true %>
+        </div>
+
         <div class="input-field col s6">
           <%= f.label :telephone, "Telefone" %>
           <%= f.telephone_field :telephone, class: "validate", maxlength: 15 %>
-        </div> 
-      </div>      
+        </div>
+      </div>
 
-      <div class="input-field">        
-        <%= f.select :kind, [["Escolha o tipo do usuário", ""], ["Administrador", :admin], ["Professor", :teacher], ["Aluno", :student]],  required: :true %> 
-      </div>                   
+      <div class="input-field">
+        <%= f.select :kind, [["Escolha o tipo do usuário", ""], ["Administrador", :admin], ["Professor", :teacher], ["Aluno", :student]],  required: :true %>
+      </div>
 
       <div class="row center">
-        <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>        
+        <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>
 
-        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>        
+        <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>
       </div>
 
   <% end %>
