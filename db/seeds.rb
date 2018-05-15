@@ -1,5 +1,4 @@
 Institution.create!(name: 'Elabore', manager: 'Lesle Maciel')
-Institution.create!(name: 'Teste', manager: 'Matheus')
 
 User.create!(email: 'matheusfvinhas@gmail.com', password: '123456', kind: :admin,
              name: 'Matheus', telephone: '(12) 98169-7471', institution_id: 1)
