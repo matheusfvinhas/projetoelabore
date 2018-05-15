@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :grades
   end
   resources :enrollments, only: %i[index create destroy show]
+  resources :institutions
+
   get 'enrollment/:id/grades/:grade_id' => 'enrollments#show', as: :enrollment_show
 
   get 'ask_question/:enrollment_id/grade/:grade_id' => 'questions#ask_question', as: :ask_question

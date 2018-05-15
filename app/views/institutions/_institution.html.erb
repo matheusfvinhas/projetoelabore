@@ -1,0 +1,12 @@
+<body>
+  <tr>
+    <td><%= institution.name %></td>
+    <td><%= institution.manager %></td>
+    <td>
+      <%= button_to institution_path(institution), class: "btn-floating btn waves-effect waves-light red right", data: {:confirm => 'Tem certeza que deseja deletar essa instituição?'}, method: :delete do %>
+        <%= material_icon.delete_forever %>
+      <% end %>
+    </td>
+  </tr>
+</body>
+

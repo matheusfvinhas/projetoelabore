@@ -1,0 +1,29 @@
+<div class="container center">
+  <p style="font-size: 35px;">Instituiçoes</p>
+</div>
+
+<div class="right">
+  <%= link_to new_institution_path, class: "btn-floating btn-large waves-effect waves-light #{PRIMARY_BUTTONS_COLOR}" do %>
+    <%= material_icon.add %>
+  <% end %>
+</div>
+
+<div class="center">
+    <table class="highlight bordered responsive-table">
+      <head>
+        <tr>
+          <th>Nome</th>
+          <th>Dirigente</th>
+          <th></th>
+        </tr>
+      </head>
+
+      <%= render @institutions %>
+    </table>
+
+    <div class="row center">
+      <%= paginate @institutions, window: 2 %>
+    </div>
+</div>
+
+

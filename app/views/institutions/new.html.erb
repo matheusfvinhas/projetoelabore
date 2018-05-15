@@ -1,0 +1,35 @@
+<div class="container center">
+  <p style="font-size: 35px;">Cadastrar Instituição</p>
+</div>
+
+<div class="container">
+  <%= form_for @institution do |f| %>
+
+    <% if @institution.errors.any? %>
+      <% @institution.errors.full_messages.each do |message| %>
+        <script type="text/javascript">
+          Materialize.toast('<%= message %>', 4000, 'red')
+        </script>
+      <% end %>
+    <% end %>
+
+    <div class="input-field">
+      <%= f.label :name, 'Nome' %>
+      <%= f.text_field :name, class: "validate", required: :true, maxlength: 50 %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :manager, 'Dirigente' %>
+      <%= f.text_field :manager, class: "validate", required: :true, maxlength: 50 %>
+    </div>
+
+    <div class="row center">
+      <%= f.submit "Salvar", class: "waves-effect waves-light btn #{PRIMARY_BUTTONS_COLOR}"  %>
+
+      <%= link_to "Voltar", :back, class: "waves-effect waves-light btn #{BACK_BUTTONS_COLOR}" %>
+    </div>
+
+  <% end %>
+</div>
+
+
