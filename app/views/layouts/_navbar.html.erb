@@ -68,6 +68,7 @@
       <% end %>
       <% if !current_user.student? %>
         <% if current_user.admin? %>
+          <li><%= link_to "Instituiçoes", institutions_path %></li>
           <li><%= link_to "Usuários", users_path %></li>
           <li><%= link_to "Pedidos de Parceria", partners_path %></li>
         <% end %>
