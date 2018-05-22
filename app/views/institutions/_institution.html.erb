@@ -3,8 +3,10 @@
     <td><%= institution.name %></td>
     <td><%= institution.manager %></td>
     <td>
-      <%= button_to institution_path(institution), class: "btn-floating btn waves-effect waves-light red right", data: {:confirm => 'Tem certeza que deseja deletar essa instituição?'}, method: :delete do %>
-        <%= material_icon.delete_forever %>
+      <% if institution.id != 1 %>
+        <%= button_to institution_path(institution), class: "btn-floating btn waves-effect waves-light red right", data: {:confirm => 'Tem certeza que deseja deletar essa instituição? Todos os usuários ligados à ela tambem serão removidos!'}, method: :delete do %>
+          <%= material_icon.delete_forever %>
+        <% end %>
       <% end %>
     </td>
   </tr>

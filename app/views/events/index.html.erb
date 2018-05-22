@@ -1,12 +1,12 @@
-<div>  
+<div>
 
     <p style="font-size: 35px;">Eventos</p>
     <div class="row">
         <% if current_user and current_user.admin? %>
             <%= link_to new_event_path, class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
                 <%= material_icon.add %>
-            <% end %>       
-        <% end %>  
+            <% end %>
+        <% end %>
     </div>
 
     <div class="row">
@@ -16,5 +16,10 @@
     <div class="row center">
         <%= paginate @events, window: 2 %>
     </div>
- 
+
+    <% if @events.length == 0 %>
+      <div>
+        <h6>Não existem eventos cadastrados no momento!</h6>
+      </div>
+    <% end %>
 </div>

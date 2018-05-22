@@ -1,20 +1,25 @@
 <div>
 
-    <p style="font-size: 35px;">Editais</p>   
+    <p style="font-size: 35px;">Editais</p>
     <div class="row">
         <% if current_user and current_user.admin? %>
             <%= link_to new_notice_path, class: "btn-floating btn-large waves-effect waves-light right #{PRIMARY_BUTTONS_COLOR}" do %>
                 <%= material_icon.add %>
-            <% end %> 
-        <% end %> 
-    </div> 
+            <% end %>
+        <% end %>
+    </div>
 
     <div class="row">
-        <%= render @notices %>     
-    </div>   
+        <%= render @notices %>
+    </div>
 
     <div class="row center">
         <%= paginate @notices, window: 2 %>
     </div>
-    
+
+    <% if @notices.length == 0 %>
+      <div>
+        <h6>Não existem editais cadastrados no momento!</h6>
+      </div>
+    <% end %>
 </div>

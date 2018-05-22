@@ -15,4 +15,10 @@
   <div class="row center">
     <%= paginate @enrollments, window: 2 %>
   </div>
+
+  <% if @enrollments.length == 0 %>
+    <div>
+      <h6>Você não está matriculado em nenhum curso!</h6>
+    </div>
+  <% end %>
 </div>
