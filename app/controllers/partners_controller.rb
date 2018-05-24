@@ -17,30 +17,30 @@ class PartnersController < ApplicationController
 
   def confirm_partner_apply
     @partner = Partner.find(params[:id])
-    @user = create_user(@partner)        
-  
+    @user = create_user(@partner)
+
     if @user.save
-      flash[:notice] = 'Parceria confirmada com sucesso.'
-        confirm_partner            
-        UserMailer.welcome(@user, @user.password).deliver_later            
+      flash[:notice] = "Parceria confirmada com sucesso."
+      confirm_partner
+      UserMailer.welcome(@user, @user.password).deliver_later
     else
-      flash[:alert] = 'Erro ao confirmar parceria.'          
+      flash[:alert] = "Erro ao confirmar parceria."
     end
-    
+
     redirect_to partners_path
   end
 
   def send_partner_apply
     @partner = Partner.new(partner_params)
-    @partner.confirmed = false      
-      
+    @partner.confirmed = false
+
     if @partner.save
-      flash[:notice] = 'Sua solicitação foi enviada com sucesso.'
+      flash[:notice] = "Sua solicitação foi enviada com sucesso."
       PartnersMailer.new_partner(@partner).deliver_later
       redirect_to root_path
     else
-      flash[:alert] = 'Erro ao enviar solicitação.'  
-      render :new        
+      flash[:alert] = "Erro ao enviar solicitação."
+      render :new
     end
   end
 

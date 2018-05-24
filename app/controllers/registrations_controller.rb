@@ -24,24 +24,23 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource
       end
     else
-      render 'devise/registrations/edit'
+      render "devise/registrations/edit"
     end
   end
 
   private
 
-  def account_update_params
-    params.require(:user).permit(:username, :name, :responsible, :telephone, :mini_cv, :email, :password, :current_password, :password_confirmation)
-  end
-
-  def validate_password
-    if params[:user][:password] != params[:user][:password_confirmation]
-      flash[:alert] = 'Senha e Confirmação de Senha devem ser iguais.'
-      false
-    else
-      flash[:alert] = ''
-      true
+    def account_update_params
+      params.require(:user).permit(:username, :name, :responsible, :telephone, :mini_cv, :email, :password, :current_password, :password_confirmation)
     end
-  end
 
+    def validate_password
+      if params[:user][:password] != params[:user][:password_confirmation]
+        flash[:alert] = "Senha e Confirmação de Senha devem ser iguais."
+        false
+      else
+        flash[:alert] = ""
+        true
+      end
+    end
 end

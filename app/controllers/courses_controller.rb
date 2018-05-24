@@ -25,10 +25,10 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
 
     if @course.save
-      flash[:notice] = 'Curso salvo com sucesso.'
+      flash[:notice] = "Curso salvo com sucesso."
       redirect_to courses_path
     else
-      flash[:alert] = 'Erro ao salvar curso.'
+      flash[:alert] = "Erro ao salvar curso."
       render :new
     end
   end
@@ -37,19 +37,19 @@ class CoursesController < ApplicationController
 
   def update
     if @course.update(course_params)
-      flash[:notice] = 'Curso atualizado com sucesso.'
+      flash[:notice] = "Curso atualizado com sucesso."
       redirect_to courses_path
     else
-      flash[:alert] = 'Erro ao atualizar curso.'
+      flash[:alert] = "Erro ao atualizar curso."
       render :edit
     end
   end
 
   def destroy
     if @course.destroy
-      flash[:notice] = 'Curso deletado com sucesso.'
+      flash[:notice] = "Curso deletado com sucesso."
     else
-      flash[:alert] = 'Erro ao deletar curso.'
+      flash[:alert] = "Erro ao deletar curso."
     end
     redirect_to courses_path
   end
@@ -66,5 +66,4 @@ class CoursesController < ApplicationController
     def set_teachers
       @teachers = User.all.where(kind: :teacher)
     end
-
 end

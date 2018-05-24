@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EnrollmentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_enrollment, only: %i[show destroy]
@@ -18,9 +20,9 @@ class EnrollmentsController < ApplicationController
     @course.enrollments.create(user: current_user)
 
     if @course.save && create_tracking
-      flash[:notice] = 'Matrícula Efetuada com sucesso.'
+      flash[:notice] = "Matrícula Efetuada com sucesso."
     else
-      flash[:alert] = 'Erro ao efetuar matrícula.'
+      flash[:alert] = "Erro ao efetuar matrícula."
     end
 
     redirect_to enrollments_path
@@ -28,9 +30,9 @@ class EnrollmentsController < ApplicationController
 
   def destroy
     if @enrollment.destroy
-      flash[:notice] = 'Desmatriculado com sucesso.'
+      flash[:notice] = "Desmatriculado com sucesso."
     else
-      flash[:alert] = 'Erro ao desmatricular curso.'
+      flash[:alert] = "Erro ao desmatricular curso."
     end
     redirect_to enrollments_path
   end
@@ -46,5 +48,4 @@ class EnrollmentsController < ApplicationController
       @tracking.grade_id = @course.grades.first.id
       @tracking.save
     end
-
 end

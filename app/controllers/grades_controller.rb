@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GradesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_grade, only: %i[show edit update destroy]
@@ -17,10 +19,10 @@ class GradesController < ApplicationController
     @grade = @course.grades.create(grade_params)
 
     if @grade.save
-      flash[:notice] = 'Aula salva com sucesso.'
+      flash[:notice] = "Aula salva com sucesso."
       redirect_to course_grades_path(@course)
     else
-      flash[:alert] = 'Erro ao salvar aula.'
+      flash[:alert] = "Erro ao salvar aula."
       render :new
     end
   end
@@ -29,19 +31,19 @@ class GradesController < ApplicationController
 
   def update
     if @grade.update(grade_params)
-      flash[:notice] = 'Curso atualizado com sucesso.'
-        redirect_to course_grades_path(@course)
+      flash[:notice] = "Curso atualizado com sucesso."
+      redirect_to course_grades_path(@course)
     else
-      flash[:alert] = 'Erro ao atualizar curso.'
-        render :edit
+      flash[:alert] = "Erro ao atualizar curso."
+      render :edit
     end
   end
 
   def destroy
     if @grade.destroy
-      flash[:notice] = 'Curso deletado com sucesso.'
+      flash[:notice] = "Curso deletado com sucesso."
     else
-      flash[:alert] = 'Erro ao deletar curso.'
+      flash[:alert] = "Erro ao deletar curso."
     end
     redirect_to course_grades_path(@course)
   end
@@ -64,9 +66,9 @@ class GradesController < ApplicationController
     end
 
     def config_link
-      if !params[:grade][:video_link].start_with?('http') && !params[:grade][:video_link].blank?
+      if !params[:grade][:video_link].start_with?("http") && !params[:grade][:video_link].blank?
         params[:grade][:video_link] = 'http://#{params[:grade][:video_link]}'
       end
-      params[:grade][:video_link].sub! 'watch?v=', 'embed/'
+      params[:grade][:video_link].sub! "watch?v=", "embed/"
     end
 end

@@ -6,10 +6,11 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "app/**/*.{js,es6,jsx}": [
-      "./node_modules/prettier/bin/prettier.js --trailing-comma --single-quote es5 --write",
+    "app/**/*.{js,es6,jsx,scss,css}": [
+      "./node_modules/prettier/bin-prettier.js --single-quote --trailing-comma es5 --write",
       "git add"
-    ]
+    ],
+    "{app,spec}/**/*.rb": ["bundle exec rubocop -a", "git add"]
   },
   "devDependencies": {
     "husky": "^0.14.3",

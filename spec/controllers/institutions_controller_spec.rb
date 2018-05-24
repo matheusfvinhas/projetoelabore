@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-RSpec.describe CoursesController, type: :controller do
+RSpec.describe InstitutionsController, type: :controller do
 
 end

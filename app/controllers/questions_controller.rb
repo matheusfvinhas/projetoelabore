@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_enrollment
@@ -7,13 +9,13 @@ class QuestionsController < ApplicationController
   end
 
   def send_question
-    QuestionsMailer.send_question(params[:grade_title], 
-                                  params[:email_teacher], 
+    QuestionsMailer.send_question(params[:grade_title],
+                                  params[:email_teacher],
                                   params[:email_student],
                                   @enrollment.user.name,
-                                  params[:question], 
+                                  params[:question],
                                   @enrollment.course.title).deliver_later
-    flash[:notice] = 'Pergunta enviada com sucesso.'
+    flash[:notice] = "Pergunta enviada com sucesso."
     redirect_to enrollment_path(@enrollment)
   end
 

@@ -14,15 +14,14 @@
  *= require_self
  *= require_tree .
  */
- @import "materialize";
+@import 'materialize';
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
-

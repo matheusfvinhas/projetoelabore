@@ -18,10 +18,10 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
-      flash[:notice] = 'Evento salvo com sucesso.'
+      flash[:notice] = "Evento salvo com sucesso."
       redirect_to events_path
     else
-      flash[:alert] = 'Erro ao salvar evento.'
+      flash[:alert] = "Erro ao salvar evento."
       render :new
     end
   end
@@ -32,19 +32,19 @@ class EventsController < ApplicationController
 
   def update
     if update_event
-      flash[:notice] = 'Evento atualizado com sucesso.'
+      flash[:notice] = "Evento atualizado com sucesso."
       redirect_to events_path
     else
-      flash[:alert] = 'Erro ao atualizar evento.'
+      flash[:alert] = "Erro ao atualizar evento."
       render :edit
     end
   end
 
   def destroy
     if @event.destroy
-      flash[:notice] = 'Evento deletado com sucesso.'
+      flash[:notice] = "Evento deletado com sucesso."
     else
-      flash[:alert] = 'Erro ao deletar evento.'
+      flash[:alert] = "Erro ao deletar evento."
     end
     redirect_to events_path
   end
@@ -52,9 +52,9 @@ class EventsController < ApplicationController
   def destroy_image
     remove_image_at_index(params[:format].to_i)
     if @event.save
-      flash[:notice] = 'Imagem deletada com sucesso.'
+      flash[:notice] = "Imagem deletada com sucesso."
     else
-      flash[:alert] = 'Erro ao deletar imagem.'
+      flash[:alert] = "Erro ao deletar imagem."
     end
     redirect_to event_path(@event)
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuestionsMailer < ApplicationMailer
   def send_question(grade_title, email_teacher, email_student, name_student, question, course_title)
     @grade_title = grade_title

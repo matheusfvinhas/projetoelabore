@@ -10,12 +10,12 @@ class InstitutionsController < ApplicationController
 
   def create
     @institution = Institution.new(institution_params)
-    
+
     if @institution.save
-      flash[:notice] = 'Instituição salvo com sucesso.'
+      flash[:notice] = "Instituição salvo com sucesso."
       redirect_to institutions_path
     else
-      flash[:alert] = 'Erro ao salvar Instituição.'
+      flash[:alert] = "Erro ao salvar Instituição."
       render :new
     end
   end
@@ -29,11 +29,11 @@ class InstitutionsController < ApplicationController
 
   def destroy
     if @institution.destroy
-      flash[:notice] = 'Instituição deletada com sucesso.'
+      flash[:notice] = "Instituição deletada com sucesso."
     else
-      flash[:alert] = 'Erro ao tentar remover instituição.'
+      flash[:alert] = "Erro ao tentar remover instituição."
     end
-    
+
     redirect_to institutions_path
   end
 
@@ -45,5 +45,5 @@ class InstitutionsController < ApplicationController
 
     def set_institution
       @institution = Institution.find(params[:id])
-    end    
+    end
 end
