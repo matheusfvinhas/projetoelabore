@@ -13,7 +13,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :username, length: { maximum: 20 }
   validates :name, presence: true, length: { maximum: 50 }
-  validates :responsible, length: { maximum: 50 }
   validates :telephone, length: { maximum: 15 }
   validates :mini_cv, length: { maximum: 5000 }
   validates :kind, presence: true
