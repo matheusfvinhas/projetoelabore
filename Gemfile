@@ -5,9 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.5.0'
+ruby '2.5.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -28,9 +28,10 @@ gem 'jquery-turbolinks'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'material_icons'
-gem 'materialize-sass'
+gem 'materialize-sass', '0.100'
 gem 'mini_magick'
 gem 'rails-i18n'
+gem 'tzinfo-data'
 
 group :development, :test do
   gem 'dotenv-rails'
