@@ -7,7 +7,6 @@ WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install --binstubs
-RUN rails db:migrate
 
 COPY . .
 
