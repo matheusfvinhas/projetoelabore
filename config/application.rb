@@ -13,8 +13,9 @@ module ProjetoElabore
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.default_locale = :'pt-BR'
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.log_tags  = [:subdomain, :uuid]
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 end
