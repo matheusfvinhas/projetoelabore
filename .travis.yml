@@ -1,0 +1,13 @@
+language: ruby
+
+script:
+  - rspec
+
+notifications:
+  email:
+    recipients:
+      - matheusfvinhas@gmail.com
+    on_success: always
+    on_failure: always
+
+
