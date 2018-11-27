@@ -7,6 +7,8 @@ WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install --binstubs
+RUN bundle exec rake assets:precompile
+RUN rails db:migrate
 
 COPY . .
 
