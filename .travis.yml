@@ -1,7 +1,7 @@
 language: ruby
 
 script:
-  - rspec
+  - bundle exec rspec
 
 notifications:
   email:
