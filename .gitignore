@@ -23,6 +23,3 @@
 .env
 
 public/uploads
-
-# Credentials
-.travis/*.key
