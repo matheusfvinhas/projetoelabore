@@ -3,12 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.4.1-node-browsers
-        environment:
-          RAILS_ENV: test
-      - image: circleci/postgres:9.4
-        environment:
-          POSTGRES_USER: root
-          POSTGRES_DB: ProjetoElabore_test
 
     working_directory: ~/repo
 
@@ -27,16 +21,10 @@ jobs:
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
-      - run: sudo apt install -y postgresql-client || true
-
       - save_cache:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
 
       # run tests!
       - run:
