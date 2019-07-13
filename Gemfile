@@ -29,7 +29,7 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'material_icons'
 gem 'materialize-sass', '0.100'
-gem 'mini_magick'
+gem 'mini_magick', '>= 4.9.4'
 gem 'rails-i18n'
 gem 'tzinfo-data'
 
